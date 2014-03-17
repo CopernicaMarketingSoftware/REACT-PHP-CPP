@@ -1,32 +1,19 @@
-CPP			    = g++-4.8
+CPP			    = g++
 RM			    = rm -f
 CPPFLAGS		= -Wall -c -I. -O2 -flto -std=c++11 -g
 LD			    = g++
 LD_FLAGS		= -Wall -shared -O2 
-SHARED_LIB		= libreactcpp.so
-STATIC_LIB		= $(SHARED_LIB:%.so=%.a)
+LIB				= react.so
 SOURCES			= $(wildcard *.cpp */*.cpp)
-SHARED_OBJECTS	= $(SOURCES:%.cpp=%.o)
-STATIC_OBJECTS	= $(SOURCES:%.cpp=%.s.o)
+OBJECTS			= $(SOURCES:%.cpp=%.o)
 
-all:	shared static
+all:	${OBJECTS} ${LIB}
 
-shared:	${SHARED_OBJECTS} ${SHARED_LIB}
-
-static:	${STATIC_OBJECTS} ${STATIC_LIB}
-
-${SHARED_LIB}: ${SHARED_OBJECTS}
-	${LD} ${LD_FLAGS} -o $@ ${SHARED_OBJECTS} -lev -lcares
-
-${STATIC_LIB}: ${STATIC_OBJECTS}
-	ar rcs ${STATIC_LIB} ${STATIC_OBJECTS}
+${LIB}: ${OBJECTS}
+	${LD} ${LD_FLAGS} -o $@ ${OBJECTS} -lev -lcares -lreactcpp -lphpcpp `mysql_config --libs`
 
 clean:
-	${RM} *.obj *~* ${SHARED_OBJECTS} ${STATIC_OBJECTS} ${SHARED_LIB} ${STATIC_LIB}
+	${RM} *.obj *~* ${OBJECTS} ${LIB}
 
-${SHARED_OBJECTS}:
+${OBJECTS}:
 	${CPP} ${CPPFLAGS} -fpic -o $@ ${@:%.o=%.cpp}
-
-${STATIC_OBJECTS}:
-	${CPP} ${CPPFLAGS} -o $@ ${@:%.s.o=%.cpp}
-
