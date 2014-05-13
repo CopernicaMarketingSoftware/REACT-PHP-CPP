@@ -85,7 +85,7 @@ $loop->run();
 
 ```
 
-Again, an instance of the event loop needs to be created, so that the connection class can be used. The callback function notifies us when the connection is established.
+Again, an instance of the event loop needs to be created, so that the connection class can be used, whilst the callback function notifies us when the connection is established.
 
 
 Statements
