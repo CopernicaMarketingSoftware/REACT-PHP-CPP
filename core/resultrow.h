@@ -23,12 +23,9 @@ namespace ReactPhp {
 /**
  *	Class definition
  */
-class ResultRow :
-	public Php::Base,
-    public Php::Traversable
+class ResultRow : public Php::Base, public Php::Traversable
 {
 private:
-	
 	/**
 	 *  The actual resultRow object
 	 *  @var	React::MySQL::ResultRow
@@ -141,43 +138,43 @@ public:
 	 */
 	virtual ~ResultRow() {}
 	
-	/**
-     *  Get the iterator
-     *  @return Php::Iterator
-     */
+       /**
+     	*  Get the iterator
+     	*  @return Php::Iterator
+     	*/
 	virtual Php::Iterator *getIterator() override
-    {
-        // construct a new result iterator on the heap
-        // the (PHP-CPP library will delete it when ready)
-        return new ResultRowIterator(this, &_resultRow);
-    }
+    	{
+        	// construct a new result iterator on the heap
+        	// the (PHP-CPP library will delete it when ready)
+        	return new ResultRowIterator(this, &_resultRow);
+    	}
     
-    /**
-     *  Get the number of fields in the row
-     *  @return size_t
-     */
-    size_t size() const;
+       /**
+     	*  Get the number of fields in the row
+     	*  @return size_t
+     	*/
+    	size_t size() const;
 
-    /**
-     *  Retrieve a field by index
-     *
-     *  This function throws an exception if no field
-     *  exists under the given index (i.e. index
-     *  is not smaller than size()).
-     *
-     *  @param  index   field index
-     */
-    Php::Value operator [] (size_t index) const;
+       /**
+     	*  Retrieve a field by index
+     	*
+     	*  This function throws an exception if no field
+	*  exists under the given index (i.e. index
+     	*  is not smaller than size()).
+     	*
+     	*  @param  index   field index
+     	*/
+    	Php::Value operator [] (size_t index) const;
 
-    /**
-     *  Retrieve a field by name
-     *
-     *  This function throws an exception if no field
-     *  exists under the given key.
-     *
-     *  @param  key     field name
-     */
-    Php::Value operator [] (const std::string &key) const; 
+       /**
+     	*  Retrieve a field by name
+     	*
+     	*  This function throws an exception if no field
+     	*  exists under the given key.
+     	*
+     	*  @param  key     field name
+     	*/
+    	Php::Value operator [] (const std::string &key) const; 
 };
 
 /**
