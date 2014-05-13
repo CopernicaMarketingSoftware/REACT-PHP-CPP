@@ -167,3 +167,52 @@ $loop->run();
 
 ```
 
+That, practically, means that all MySQL statements are executed using the ReactPhp::Statement::execute function, except the SELECT statement, which demands the ReactPhp::Statement::executeQuery function to execute.
+This is the reason why there is a separate function, which can be used for executing queries only, namely the ReactPhp::Connection::query function. As a result, whenever a query has to be executed, the best approach is to use the aforementioned function and not the ReactPhp::Statement::executeQuery function, since the former is more straightforward:
+
+```php
+
+// create the event loop
+$loop = new Async\Loop();
+
+// establish a connection to MySQL
+$connection = new Async\Connection($loop, "mysql.example.org", "example user", "example password", "example database", function() {
+	
+	echo("Connection established\n");
+	
+	return false;
+});
+
+// query the database
+$connection->query("SELECT * FROM Persons LIMIT 2", function($result) {
+	
+	// iterate over the result set
+	foreach ($result as $row)
+	{
+		echo("{ ");
+		
+		// and dump all the result fields to the screen
+		foreach ($row as $field)
+		{
+			echo("$field ");
+		}
+		
+		echo("}\n");
+	}
+	
+	// alternative way -> iterate over the result set and fetch each individual row
+/*	for ($i = 0; $i < $result->size(); $i++)
+	{
+		echo("{\n");
+		$result->fetchRow($i);
+		echo("}\n");
+	}
+*/	
+	return false;
+});
+
+// run the event loop
+$loop->run();
+```
+
+
