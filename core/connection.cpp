@@ -52,7 +52,6 @@ void Connection::__construct(Php::Parameters &params)
 		
 		// call the PHP callback
 		callback();
-		
 	});
 }	
 	  
