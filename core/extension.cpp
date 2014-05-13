@@ -56,7 +56,7 @@ extern "C"
         timeoutWatcher.method("cancel", &ReactPhp::TimeoutWatcher::cancel);
         timeoutWatcher.method("set", &ReactPhp::TimeoutWatcher::set);
       
-		// the read watcher class
+	// the read watcher class
 	Php::Class<ReactPhp::ReadWatcher> readWatcher("ReadWatcher");
 	readWatcher.method("__construct", &ReactPhp::ReadWatcher::__construct);
 	readWatcher.method("cancel", &ReactPhp::ReadWatcher::cancel);
