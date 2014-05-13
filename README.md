@@ -114,7 +114,7 @@ $statement = new Async\Statement($connection, "INSERT INTO Persons (FirstName, L
 ```
 
 From the above script it is obvious that the connection object is essential in order to create the statement object, since it constitutes the first parameter of the constructor. The second parameter is the actual MySQL statement and the third is the callback function, which notifies us that the statement can be executed.
-For the execution to take place, we need to call the ReactPhp::Statement::execute function. However, when the statement is a SELECT statement, the ReactPhp::Statement::executeQuery function needs to be called. This happens, because in the case of a query a result object needs to be passed as a parameter in the callback function, so that the result set can be dumped to the screen:
+For the execution to take place, we need to call the ReactPhp::Statement::execute() function. However, when the statement is a SELECT statement, the ReactPhp::Statement::executeQuery() function needs to be called. This happens, because in the case of a query a result object needs to be passed as a parameter in the callback function, so that the result set can be dumped to the screen:
 
 ```php
 
@@ -175,8 +175,8 @@ $loop->run();
 
 ```
 
-That, practically, means that all MySQL statements are executed using the ReactPhp::Statement::execute function, except the SELECT statement, which demands the ReactPhp::Statement::executeQuery function to execute.
-This is the reason why there is a separate function, which can be used for executing queries only, namely the ReactPhp::Connection::query function. As a result, whenever a query has to be executed, the best approach is to use the aforementioned function and not the ReactPhp::Statement::executeQuery function, since the former is more straightforward:
+That, practically, means that all MySQL statements are executed using the ReactPhp::Statement::execute() function, except the SELECT statement, which demands the ReactPhp::Statement::executeQuery() function to execute.
+This is the reason why there is a separate function, which can be used for executing queries only, namely the ReactPhp::Connection::query() function. As a result, whenever a query has to be executed, the best approach is to use the aforementioned function and not the ReactPhp::Statement::executeQuery() function, since the former is more straightforward:
 
 ```php
 
