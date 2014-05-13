@@ -10,7 +10,7 @@ OBJECTS			= $(SOURCES:%.cpp=%.o)
 all:	${OBJECTS} ${LIB}
 
 ${LIB}: ${OBJECTS}
-	${LD} ${LD_FLAGS} -o $@ ${OBJECTS} -lev -lcares -lreactcpp -lphpcpp `mysql_config --libs`
+	${LD} ${LD_FLAGS} -o $@ ${OBJECTS} -lev -lcares -lvariant -lphpcpp -lreactcpp-mysql `mysql_config --libs` -lreactcpp 
 
 clean:
 	${RM} *.obj *~* ${OBJECTS} ${LIB}
