@@ -144,20 +144,6 @@ public:
 	 */
 	Php::Value onSynchronize(Php::Parameters &parameters);
 
-	/**
-	 *	Function that connects to mysql database
-	 * 	@param 
-	 *	@return object that established the connection
-	 */
-//	 Php::Value database(Php::Parameters &parameters);
-	 
-	/**
-	 * 	Function that performs a mysql query
-	 *	@param query		The query that needs to be performed on the database
-	 * 	@param callback		Function that is called when the query is ready to be executed
-	 * 	@return 
-	 */
-//	 Php::Value query(Php::Parameters &parameters);
 };
 
 /**
