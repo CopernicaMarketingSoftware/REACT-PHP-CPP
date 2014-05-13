@@ -1,7 +1,7 @@
 /**
- *  Statement.cpp
+ *  	Statement.cpp
  * 
- *  Class for executing prepared statements
+ 	Class for executing prepared statements
  * 
  * 	@copyright 2014 Copernica BV
  */
@@ -95,7 +95,6 @@ void Statement::executeQuery(Php::Parameters &parameters)
 		// call the PHP callback
 		callback(Php::Object("Async\\Result", object));	
 	});
-
 }
 	
 /**
