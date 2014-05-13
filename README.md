@@ -15,6 +15,8 @@ Below is a typical application, where an instance of the event loop is created, 
 
 ```php
 
+<?php
+
 // create the event loop
 $loop = new Async\Loop();
 
@@ -69,6 +71,8 @@ The ReactPhp::Connection class is wrapped around the React::MySQL::Connection cl
 
 ```php
 
+<?php
+
 // create the event loop
 $loop = new Async\Loop();
 
@@ -97,6 +101,8 @@ To achieve this we can use the ReactPhp::Statement class, which is also wrapped 
 
 ```php
 
+<?php
+
 // initialize a statement
 $statement = new Async\Statement($connection, "INSERT INTO Persons (FirstName, LastName, Age) VALUES ('A', 'B', 10), ('C', 'D', 20), ('E', 'F', 30)", function() {
 	
@@ -111,6 +117,8 @@ From the above script it is obvious that the connection object is essential in o
 For the execution to take place, we need to call the ReactPhp::Statement::execute function. However, when the statement is a SELECT statement, the ReactPhp::Statement::executeQuery function needs to be called. This happens, because in the case of a query a result object needs to be passed as a parameter in the callback function, so that the result set can be dumped to the screen:
 
 ```php
+
+<?php
 
 // create the event loop
 $loop = new Async\Loop();
@@ -172,6 +180,8 @@ This is the reason why there is a separate function, which can be used for execu
 
 ```php
 
+<?php
+
 // create the event loop
 $loop = new Async\Loop();
 
@@ -184,7 +194,7 @@ $connection = new Async\Connection($loop, "mysql.example.org", "example user", "
 });
 
 // query the database
-$connection->query("SELECT * FROM Persons", function($result) {
+$connection->query("SELECT * FROM Persons LIMIT 2", function($result) {
 	
 	// iterate over the result set
 	foreach ($result as $row)
@@ -215,4 +225,6 @@ $connection->query("SELECT * FROM Persons", function($result) {
 $loop->run();
 ```
 
-
+At this point, we should state that tere are two ways to iterate over the result set produced by the query.
+The first (used in the above script) uses the Php::Traversable class of the PHP-CPP library, which enables classes to be used in foreach loops, just like regular arrays.
+The second way (in comments at the above script) iterates over each valid result and dumps each individual row to the screen.
