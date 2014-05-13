@@ -210,7 +210,7 @@ $connection->query("SELECT * FROM Persons", function($result) {
 		echo("}\n");
 	}
 	
-	// alternative way -> iterate over the result set and fetch each individual row
+	// alternative way -> iterate over the result set and dump each individual row to the screen
 /*	for ($i = 0; $i < $result->size(); $i++)
 	{
 		echo("{\n");
