@@ -56,7 +56,8 @@ echo($loop->now()."\n");
 
 // run the event loop
 $loop->run();
+
 ```
 
-
+After the instance of the event loop is created, it should be run in order for everything to work.
 
