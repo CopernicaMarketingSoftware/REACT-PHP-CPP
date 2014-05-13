@@ -59,5 +59,36 @@ $loop->run();
 
 ```
 
-After the instance of the event loop is created, it should be run in order for everything to work.
+After the instance of the event loop is created, it should be run in order for everything to register the timers and filedescriptors.
+
+
+Connection class
+================
+
+The ReactPhp::Connection class is wrapped around the React::MySQL::Connection class of the REACT-CPP-MYSQL library and it can be used to establish a connection to a MySQL daemon, as the following script illustrates: 
+
+```php
+
+// create the event loop
+$loop = new Async\Loop();
+
+// establish a connection to MySQL
+$connection = new Async\Connection($loop, "mysql.example.org", "example user", "example password", "example database", function() {
+	
+	echo("Connection established\n");
+	
+	return false;
+});
+
+// run the event loop
+$loop->run();
+
+```
+
+Again, an instance of the event loop needs to be created, so that the connection class can be used. The callback function notifies us when the connection is established.
+
+
+Statements
+==========
+
 
