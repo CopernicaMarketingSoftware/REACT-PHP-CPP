@@ -17,9 +17,11 @@
 #include "readwatcher.h"
 #include "writewatcher.h"
 #include "synchronizewatcher.h"
-
-//using namespace std;
-//using namespace ReactPhp;
+#include "connection.h"
+#include "statement.h"
+#include "parameter.h"
+#include "localparameter.h"
+#include "result.h"
 
 // Symbols are exported according to the "C" language
 extern "C" 
@@ -46,8 +48,6 @@ extern "C"
         loop.method("onReadable", &ReactPhp::Loop::onReadable);
         loop.method("onWritable", &ReactPhp::Loop::onWritable);
         loop.method("onSynchronize", &ReactPhp::Loop::onSynchronize);
-      //  loop.method("database", &ReactPhp::Loop::database);
-      //  loop.method("query", &ReactPhp::Loop::query);
 
         // the timer watcher class
         Php::Class<ReactPhp::TimeoutWatcher> timeoutWatcher("TimeoutWatcher");
@@ -82,6 +82,39 @@ extern "C"
 		synchronizeWatcher.method("synchronize", &ReactPhp::SynchronizeWatcher::synchronize);
 		synchronizeWatcher.method("cancel", &ReactPhp::SynchronizeWatcher::cancel);
 		
+		// the connection class
+		Php::Class<ReactPhp::Connection> connection("Connection");
+		connection.method("__construct", &ReactPhp::Connection::__construct);
+		connection.method("query", &ReactPhp::Connection::query);
+		
+		// the statement class
+		Php::Class<ReactPhp::Statement> statement("Statement");
+		statement.method("__construct", &ReactPhp::Statement::__construct);
+		statement.method("execute", &ReactPhp::Statement::execute);
+		statement.method("executeQuery", &ReactPhp::Statement::executeQuery);
+		
+		// the parameter class
+		Php::Class<ReactPhp::Parameter> parameter("Parameter");
+		parameter.method("__construct", &ReactPhp::Parameter::__construct);
+		
+		// the local parameter class
+		Php::Class<ReactPhp::LocalParameter> localParameter("Parameter");
+		localParameter.method("__construct", &ReactPhp::LocalParameter::__construct);
+		
+		// the result class
+		Php::Class<ReactPhp::Result> result("Result");
+		result.method("valid", &ReactPhp::Result::valid);
+		result.method("size", &ReactPhp::Result::size);
+		result.method("begin", &ReactPhp::Result::begin);
+		result.method("end", &ReactPhp::Result::end);
+		result.method("fetchRow", &ReactPhp::Result::fetchRow);
+		
+		// the result row class
+		Php::Class<ReactPhp::ResultRow> resultRow("ResultRow");
+		
+		// the result field class
+		Php::Class<ReactPhp::ResultField> resultField("ResultField");
+		
         // add all classes to the namespace
         async.add(loop);
         async.add(timeoutWatcher);
@@ -89,7 +122,14 @@ extern "C"
         async.add(writeWatcher);
         async.add(intervalWatcher);
         async.add(synchronizeWatcher);
-        
+        async.add(connection);
+        async.add(statement);
+        async.add(parameter);
+        async.add(result);
+        async.add(localParameter);
+        async.add(resultRow);
+        async.add(resultField);
+       
 		// add the namespace to the extension
         extension.add(async);
         
