@@ -49,7 +49,7 @@ public:
 	/**
 	 *  Alternative constructor
 	 *  @param	loop
-	 * 	@param	fd
+	 *  @param	fd
 	 *  @param	callback
 	 */
 	void __construct(Php::Parameters &parameters)
@@ -70,21 +70,21 @@ public:
 		});
 	}
 	
-	/**
-     *  Cancel the watcher
-     *  @return bool
-     */
-    Php::Value cancel()
-    {
+       /**
+    	*  Cancel the watcher
+     	*  @return bool
+     	*/
+    	Php::Value cancel()
+    	{
 		return _watcher->cancel();
 	}
 
-	/**
-     *  Start/resume the watcher
-     *  @return bool
-     */
-    Php::Value resume()
-    {
+       /**
+     	*  Start/resume the watcher
+     	*  @return bool
+     	*/
+    	Php::Value resume()
+    	{
 		return _watcher->resume();
 	}
      
