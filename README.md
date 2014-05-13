@@ -194,7 +194,7 @@ $connection = new Async\Connection($loop, "mysql.example.org", "example user", "
 });
 
 // query the database
-$connection->query("SELECT * FROM Persons LIMIT 2", function($result) {
+$connection->query("SELECT * FROM Persons", function($result) {
 	
 	// iterate over the result set
 	foreach ($result as $row)
@@ -214,7 +214,9 @@ $connection->query("SELECT * FROM Persons LIMIT 2", function($result) {
 /*	for ($i = 0; $i < $result->size(); $i++)
 	{
 		echo("{\n");
+		
 		$result->fetchRow($i);
+		
 		echo("}\n");
 	}
 */	
@@ -225,6 +227,6 @@ $connection->query("SELECT * FROM Persons LIMIT 2", function($result) {
 $loop->run();
 ```
 
-At this point, we should state that tere are two ways to iterate over the result set produced by the query.
+At this point, we should state that there are two ways to iterate over the result set produced by the query.
 The first (used in the above script) uses the Php::Traversable class of the PHP-CPP library, which enables classes to be used in foreach loops, just like regular arrays.
-The second way (in comments at the above script) iterates over each valid result and dumps each individual row to the screen.
+The second way (in comments at the above script) iterates over each valid result and dumps each individual row to the screen, as long as the size of the result set is not exceeded.
