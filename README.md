@@ -91,4 +91,79 @@ Again, an instance of the event loop needs to be created, so that the connection
 Statements
 ==========
 
+Naturally, the next step after establishing a connection to a MySQL daemon is to use statements in order to define or manipulate a certain table in a database. 
+
+To achieve this we can use the ReactPhp::Statement class, which is also wrapped around the React::MySQL::Statement class of the REACT-CPP-MYSQL library. First, a ReactPhp::Statement object needs to be created in the following fashion:
+
+```php
+
+// initialize a statement
+$statement = new Async\Statement($connection, "INSERT INTO Persons (FirstName, LastName, Age) VALUES ('A', 'B', 10), ('C', 'D', 20), ('E', 'F', 30)", function() {
+	
+	echo("Statement initialized\n");
+	
+	return false;
+});
+
+```
+
+From the above script it is obvious that the connection object is essential in order to create the statement object, since it constitutes the first parameter of the constructor. The second parameter is the actual MySQL statement and the third is the callback function, which notifies us that the statement can be executed.
+For the execution to take place, we need to call the ReactPhp::Statement::execute function. However, when the statement is a SELECT statement, the ReactPhp::Statement::executeQuery function needs to be called. This happens, because in the case of a query a result object needs to be passed as a parameter in the callback function, so that the result set can be dumped to the screen:
+
+```php
+
+// create the event loop
+$loop = new Async\Loop();
+
+// establish a connection to MySQL
+$connection = new Async\Connection($loop, "mysql.example.org", "example user", "example password", "example database", function() {
+	
+	echo("Connection established\n");
+	
+	return false;
+});
+
+// initialize a statement
+$statement = new Async\Statement($connection, "INSERT INTO Persons (FirstName, LastName, Age) VALUES ('A', 'B', 10), ('C', 'D', 20), ('E', 'F', 30)", function() {
+	
+	echo("Statement initialized\n");
+	
+	return false;
+});
+
+// execute the statement
+$statement->execute(function() {
+	
+	echo("Executing statement....\n");
+	
+	return false;
+	
+});
+
+// execute the statement
+$statement->executeQuery(function($result) {
+	
+	echo("Executing statement....\n");
+	
+	// iterate over the result set
+	foreach ($result as $row)
+	{
+		echo("{ ");
+		
+		// and dump all the result fields to the screen
+		foreach ($row as $field)
+		{
+			echo("$field ");
+		}
+		
+		echo("}\n");
+	}
+	
+	return false;	
+});  
+
+// run the event loop
+$loop->run();
+
+```
 
