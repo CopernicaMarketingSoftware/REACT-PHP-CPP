@@ -184,7 +184,7 @@ $connection = new Async\Connection($loop, "mysql.example.org", "example user", "
 });
 
 // query the database
-$connection->query("SELECT * FROM Persons LIMIT 2", function($result) {
+$connection->query("SELECT * FROM Persons", function($result) {
 	
 	// iterate over the result set
 	foreach ($result as $row)
