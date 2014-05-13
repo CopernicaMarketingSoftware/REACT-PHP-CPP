@@ -42,7 +42,7 @@ extern "C"
         loop.method("step", &ReactPhp::Loop::step);
         loop.method("stop", &ReactPhp::Loop::stop);
         loop.method("resume", &ReactPhp::Loop::resume);
-        loop.method("suspendmak", &ReactPhp::Loop::suspend);
+        loop.method("suspend", &ReactPhp::Loop::suspend);
         loop.method("onTimeout", &ReactPhp::Loop::onTimeout);
         loop.method("onInterval", &ReactPhp::Loop::onInterval);
         loop.method("onReadable", &ReactPhp::Loop::onReadable);
@@ -71,7 +71,6 @@ extern "C"
 		// the interval watcher class
 		Php::Class<ReactPhp::IntervalWatcher> intervalWatcher("IntervalWatcher");
 		intervalWatcher.method("__construct", &ReactPhp::IntervalWatcher::__construct);
-		intervalWatcher.method("___construct", &ReactPhp::IntervalWatcher::___construct);
 		intervalWatcher.method("start", &ReactPhp::IntervalWatcher::start);
         intervalWatcher.method("cancel", &ReactPhp::IntervalWatcher::cancel);
         intervalWatcher.method("set", &ReactPhp::IntervalWatcher::set);
