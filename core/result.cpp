@@ -1,7 +1,7 @@
 /**
- *  Result.cpp
+ * 	Result.cpp
  * 
- *  Class representing a MySQL result set
+ * 	Class representing a MySQL result set
  * 
  * 	@copyright 2014 Copernica BV
  */
@@ -11,7 +11,6 @@
  */
 #include "result.h"
 #include <iostream>
-#include <cassert>
 
 /**
  *	Set up namespace
@@ -19,7 +18,7 @@
 namespace ReactPhp {
 	
 /**
- *	Retrieve row at given offset
+ *  Retrieve row at given offset
  */
 void Result::fetchRow(Php::Parameters &params)
 {
