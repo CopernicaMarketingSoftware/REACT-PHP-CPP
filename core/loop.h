@@ -51,8 +51,8 @@ public:
 	}
 	
 	/**
-	 * 	The current time
-	 * 	@return double
+	 *  The current time
+	 *  @return double
 	 */
 	Php::Value now()
 	{
@@ -61,7 +61,7 @@ public:
 	
 	/**
 	 *  Run the loop
-	 * 	@return	bool
+	 *  @return	bool
 	 */
 	Php::Value run()
 	{
@@ -70,7 +70,7 @@ public:
 	
 	/**
 	 *  Stop the loop
-	 * 	@return bool
+	 *  @return bool
 	 */
 	Php::Value stop()
 	{
@@ -97,8 +97,8 @@ public:
 	
 	/**
 	 *  Suspend the loop. While the loop is suspended, timers will not be processed,
-	 * and the time for the timers does not proceed. Once the loop is resumed, the
-	 * timers continue to run.
+	 *  and the time for the timers does not proceed. Once the loop is resumed, the
+	 *  timers continue to run.
 	 */
 	void suspend()
 	{
@@ -107,9 +107,9 @@ public:
 	
 	/**
 	 *  Run a timeout after a while
-	 * 	@param	timeout		Number of seconds (as a float) to wait for the timer to be called
+	 *  @param	timeout		Number of seconds (as a float) to wait for the timer to be called
 	 *  @param	callback	Function that is called when timer expires
-	 * 	@return	object		TimeoutWatcher object that can be used for cancelling the timer
+	 *  @return	object		TimeoutWatcher object that can be used for cancelling the timer
 	 */
 	Php::Value onTimeout(Php::Parameters &parameters);
 	
@@ -122,25 +122,25 @@ public:
 	Php::Value onInterval(Php::Parameters &parameters);
 
 	/**
- 	 * 	Function which is called the moment a file descriptor becomes readable
- 	 * 	@param	fd			The file descriptor
- 	 * 	@param	callback	Function that is called when the file descriptor is readable
- 	 * 	@return	object		ReadWatcher object that can be used for cancelling the timer
+ 	 *  Function which is called the moment a file descriptor becomes readable
+ 	 *  @param	fd			The file descriptor
+ 	 *  @param	callback	Function that is called when the file descriptor is readable
+ 	 *  @return	object		ReadWatcher object that can be used for cancelling the timer
  	 */
 	Php::Value onReadable(Php::Parameters &parameters);
 
 	/**
-	 * 	Function which is called the moment a file descriptor becomes writable
-	 * 	@param	fd			The file descriptor
-	 * 	@param	callback	Function that is called when the file descriptor is readable
-	 * 	@return	object		WriteWatcher object that can be used for cancelling the timer
+	 *  Function which is called the moment a file descriptor becomes writable
+	 *  @param	fd			The file descriptor
+	 *  @param	callback	Function that is called when the file descriptor is readable
+	 *  @return	object		WriteWatcher object that can be used for cancelling the timer
 	 */
 	Php::Value onWritable(Php::Parameters &parameters);
 
 	/**
-	 *	Register a synchronize function
-	 * 	@param	callback	Function that is called when the file descriptor is readable
-	 * 	@return	object		SynchronizeWatcher object that can be used for cancelling the timer
+	 * Register a synchronize function
+	 * @param	callback	Function that is called when the file descriptor is readable
+	 * @return	object		SynchronizeWatcher object that can be used for cancelling the timer
 	 */
 	Php::Value onSynchronize(Php::Parameters &parameters);
 
