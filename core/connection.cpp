@@ -1,7 +1,7 @@
 /**
- *  Connection.cpp
+ *  	Connection.cpp
  * 
- *  Class representing a connection to a MySQL or MariaDB daemon
+ *  	Class representing a connection to a MySQL or MariaDB daemon
  * 
  * 	@copyright 2014 Copernica BV
  */
