@@ -129,7 +129,7 @@ public:
 	
 	/**
 	 *  Pass in an existing result
-	 *  @param	result		Movable result object
+	 *  @param result	Movable result object
 	 */
 	Result(React::MySQL::Result &&result) : _result(std::move(result)) {}
 	
@@ -138,11 +138,11 @@ public:
 	 */
 	virtual ~Result() {}
 	
-	/**
-     *  Get the iterator
-     *  @return Php::Iterator
-     */
-    virtual Php::Iterator *getIterator() override
+       /**
+     	*  Get the iterator
+     	*  @return Php::Iterator
+     	*/
+    	virtual Php::Iterator *getIterator() override
 	{
 		// construct a new result iterator on the heap
 		// the (PHP-CPP library will delete it when ready)
@@ -154,30 +154,30 @@ public:
 	 */
 	void fetchRow(Php::Parameters &params);
 
-	/**
-     *  Is this a valid result?
-     */
-    Php::Value valid();
+       /**
+     	*  Is this a valid result?
+     	*/
+    	Php::Value valid();
 	
-	/**
-     *  The number of rows affected
-     */
-    size_t affectedRows();
+       /**
+     	*  The number of rows affected
+     	*/
+    	size_t affectedRows();
     
-    /**
-     *  Get the number of rows in this result
-     */
-    Php::Value size();
+       /**
+     	*  Get the number of rows in this result
+     	*/
+    	Php::Value size();
     
-	/**
-     *  Retrieve iterator for first row
-     */
-    Php::Value begin();
+       /**
+     	*  Retrieve iterator for first row
+     	*/
+    	Php::Value begin();
 
-    /**
-     *  Retrieve iterator past the end
-     */
-    Php::Value end();   
+       /**
+     	*  Retrieve iterator past the end
+     	*/
+    	Php::Value end();   
 };
 	
 /**
