@@ -90,7 +90,7 @@ public:
 };
 
 /**
- * 	End of namespace
+ *   End namespace
  */
 }
 
