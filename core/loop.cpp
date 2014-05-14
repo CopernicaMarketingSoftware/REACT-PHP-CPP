@@ -3,7 +3,7 @@
  * 
  *  Implementation of the event loop
  * 
- * 	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
@@ -18,13 +18,13 @@
 #include "synchronizewatcher.h"
 
 /**
- *	Set up namespace
+ * Set up namespace
  */
 namespace ReactPhp {
 
 /**
  * Function which is called the moment a file descriptor becomes readable
- * @param	fd			The file descriptor
+ * @param	fd		The file descriptor
  * @param	callback	Function that is called when the file descriptor is readable
  * @return	object		ReadWatcher object that can be used for cancelling the timer
  */
@@ -47,7 +47,7 @@ Php::Value Loop::onReadable(Php::Parameters &parameters)
 
 /**
  * Function which is called the moment a file descriptor becomes writable
- * @param	fd			The file descriptor
+ * @param	fd		The file descriptor
  * @param	callback	Function that is called when the file descriptor is readable
  * @return	object		WriteWatcher object that can be used for cancelling the timer
  */
@@ -91,9 +91,9 @@ Php::Value Loop::onSynchronize(Php::Parameters &parameters)
 
 /**
  *  Run a timeout after a while
- * 	@param	timeout		Number of seconds (as a float) to wait for the timer to be called
+ *  @param	timeout		Number of seconds (as a float) to wait for the timer to be called
  *  @param	callback	Function that is called when timer expires
- * 	@return	object		TimeoutWatcher object that can be used for cancelling the timer
+ *  @return	object		TimeoutWatcher object that can be used for cancelling the timer
  */
 Php::Value Loop::onTimeout(Php::Parameters &parameters)
 {
