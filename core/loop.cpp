@@ -136,7 +136,7 @@ Php::Value Loop::onInterval(Php::Parameters &parameters)
 }
 
 /**
- *  End namespace
+ *  End of namespace
  */
 }
 
