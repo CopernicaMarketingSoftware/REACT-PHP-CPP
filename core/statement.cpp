@@ -1,9 +1,9 @@
 /**
- *  	Statement.cpp
+ *  Statement.cpp
  * 
- 	Class for executing prepared statements
+ *  Class for executing prepared statements
  * 
- * 	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
@@ -15,7 +15,7 @@
 #include "result.h"
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 
@@ -98,6 +98,6 @@ void Statement::executeQuery(Php::Parameters &parameters)
 }
 	
 /**
- *  End namespace
+ *  End of namespace
  */
 }
