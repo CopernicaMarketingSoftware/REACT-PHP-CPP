@@ -13,12 +13,12 @@
 #include <reactcpp.h>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 
 /**
- *	Class definition
+ *  Class definition
  */
 class Loop : public Php::Base
 {
@@ -123,7 +123,7 @@ public:
 
 	/**
  	 *  Function which is called the moment a file descriptor becomes readable
- 	 *  @param	fd			The file descriptor
+ 	 *  @param	fd		The file descriptor
  	 *  @param	callback	Function that is called when the file descriptor is readable
  	 *  @return	object		ReadWatcher object that can be used for cancelling the timer
  	 */
@@ -131,7 +131,7 @@ public:
 
 	/**
 	 *  Function which is called the moment a file descriptor becomes writable
-	 *  @param	fd			The file descriptor
+	 *  @param	fd		The file descriptor
 	 *  @param	callback	Function that is called when the file descriptor is readable
 	 *  @return	object		WriteWatcher object that can be used for cancelling the timer
 	 */
