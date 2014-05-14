@@ -16,12 +16,12 @@
 #include "resultrow.h"
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 	
 /**
- *	Class definition
+ *  Class definition
  */
 class Result : public Php::Base, public Php::Traversable
 {
@@ -150,7 +150,7 @@ public:
 	}
 
 	/**
-	 * 	Retrieve row at given offset
+	 *  Retrieve row at given offset
 	 */
 	void fetchRow(Php::Parameters &params);
 
@@ -181,6 +181,6 @@ public:
 };
 	
 /**
- *	End namespace
+ *  End of namespace
  */
 }
