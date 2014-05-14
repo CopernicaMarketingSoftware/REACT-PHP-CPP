@@ -12,7 +12,7 @@
 #include "resultrow.h"
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 
@@ -53,6 +53,6 @@ Php::Value ResultRow::operator [] (const std::string &key) const
 }
 
 /**
- *	End namespace
+ *  End of namespace
  */
 }
