@@ -59,6 +59,8 @@ echo($loop->now()."\n");
 // run the event loop
 $loop->run();
 
+?>
+
 ```
 
 After the instance of the event loop is created, it should be run in order to register the timers and filedescriptors.
@@ -87,6 +89,8 @@ $connection = new Async\Connection($loop, "mysql.example.org", "example user", "
 // run the event loop
 $loop->run();
 
+?>
+
 ```
 
 Again, an instance of the event loop needs to be created, so that the connection class can be used, whilst the callback function notifies us when the connection is established.
@@ -100,8 +104,6 @@ Naturally, the next step after establishing a connection to a MySQL daemon is to
 To achieve this we can use the ReactPhp::Statement class, which is also wrapped around the React::MySQL::Statement class of the REACT-CPP-MYSQL library. First, a ReactPhp::Statement object needs to be created in the following fashion:
 
 ```php
-
-<?php
 
 // initialize a statement
 $statement = new Async\Statement($connection, "INSERT INTO Persons (FirstName, LastName, Age) VALUES ('A', 'B', 10), ('C', 'D', 20), ('E', 'F', 30)", function() {
@@ -151,7 +153,7 @@ $statement->execute(function() {
 // execute a query statement -- should only be used when we have a SELECT statement
 $statement->executeQuery(function($result) {
 	
-	echo("Executing statement\n");
+	echo("Executing a SELECT statement\n");
 	
 	// iterate over the result set
 	foreach ($result as $row)
@@ -175,6 +177,8 @@ $statement->executeQuery(function($result) {
 
 // run the event loop
 $loop->run();
+
+?>
 
 ```
 
@@ -219,7 +223,7 @@ $connection->query("SELECT * FROM Persons", function($result) {
 	// alternative way -> iterate over the result set and dump each individual row to the screen
 /*	for ($i = 0; $i < $result->size(); $i++)
 	{
-		// wrap the row in curly braces
+		// wrap each row in curly braces
 		echo("{\n");
 		
 		// fetch the row and dump it to screen
@@ -235,4 +239,11 @@ $connection->query("SELECT * FROM Persons", function($result) {
 // run the event loop
 $loop->run();
 
+?>
+
 ```
+
+At this point, we should state that there are two ways to iterate over the result set produced by the query:
+The first (used in the above script) uses the Php::Traversable class of the PHP-CPP library, which enables classes to be used in foreach loops, just like regular arrays.
+The second way (in comments at the above script) iterates over each valid result and dumps each individual row to the screen, as long as the size of the result set is not exceeded.
+The difference between these two ways lies in the fact that when using the foreach loop the results of the query are being printed in the PHP user space, whereas when using the for loop they are put to the screen through C++. As a consequence, we can say that the former way is a more 'valid' way to output the query results.
