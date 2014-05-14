@@ -24,7 +24,6 @@ namespace ReactPhp {
 class Connection : public Php::Base
 {
 private:
-
 	/**
 	 *  The actual connection object
 	 *  @var	std::shared_ptr
