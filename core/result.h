@@ -1,9 +1,9 @@
 /**
- *	Result.h
+ *  Result.h
  *
- *	Class representing a MySQL result set
+ *  Class representing a MySQL result set
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
  
 /**
