@@ -61,7 +61,7 @@ $loop->run();
 
 ```
 
-After the instance of the event loop is created, it should be run in order for everything to register the timers and filedescriptors.
+After the instance of the event loop is created, it should be run in order to register the timers and filedescriptors.
 
 
 Connection class
@@ -142,28 +142,31 @@ $statement = new Async\Statement($connection, "INSERT INTO Persons (FirstName, L
 // execute the statement
 $statement->execute(function() {
 	
-	echo("Executing statement....\n");
+	echo("Executing statement\n");
 	
 	return false;
 	
 });
 
-// execute the statement
+// execute a query statement -- should only be used when we have a SELECT statement
 $statement->executeQuery(function($result) {
 	
-	echo("Executing statement....\n");
+	echo("Executing statement\n");
 	
 	// iterate over the result set
 	foreach ($result as $row)
 	{
+		// wrap the row in curly braces
 		echo("{ ");
 		
-		// and dump all the result fields to the screen
+		// iterate over each individual row of the result set
 		foreach ($row as $field)
 		{
+			// and dump all the result fields to the screen
 			echo("$field ");
 		}
 		
+		// close the row
 		echo("}\n");
 	}
 	
@@ -199,23 +202,31 @@ $connection->query("SELECT * FROM Persons", function($result) {
 	// iterate over the result set
 	foreach ($result as $row)
 	{
+		// wrap each row in curly braces
 		echo("{ ");
-		
-		// and dump all the result fields to the screen
+				
+		// iterate over each individual row of the result set
 		foreach ($row as $field)
 		{
+			// and dump all the result fields to the screen
 			echo("$field ");
 		}
 		
+		// close the row
 		echo("}\n");
 	}
 	
 	// alternative way -> iterate over the result set and dump each individual row to the screen
 /*	for ($i = 0; $i < $result->size(); $i++)
 	{
+		// wrap the row in curly braces
 		echo("{\n");
+		
+		// fetch the row and dump it to screen
 		$result->fetchRow($i);
-		echo("}\n");
+		
+		// close the row
+		echo("\n}\n");
 	}
 */	
 	return false;
@@ -223,4 +234,5 @@ $connection->query("SELECT * FROM Persons", function($result) {
 
 // run the event loop
 $loop->run();
+
 ```
