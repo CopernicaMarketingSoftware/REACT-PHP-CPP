@@ -14,12 +14,12 @@
 #include <reactcpp/mysql.h>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 	
 /**
- *	Class definition
+ *  Class definition
  */
 class Statement : public Php::Base
 {
@@ -49,33 +49,33 @@ public:
 	 */
 	virtual ~Statement() {}
 	
-	/**
-     *  Constructor
-     *
-     *  @param  connection  the connection to run the statement on
-     *  @param  statement   the statement to execute
-     *  @param  callback    the callback to inform of success or failure
-     */
-    void __construct(Php::Parameters &parameters);
+       /**
+     	*  Constructor
+     	*
+     	*  @param  connection  the connection to run the statement on
+     	*  @param  statement   the statement to execute
+     	*  @param  callback    the callback to inform of success or failure
+     	*/
+    	void __construct(Php::Parameters &parameters);
     
-    /**
-     *  Execute statement with given parameters
-     *
-     *  @param  parameters  input parameters
-     *  @param  count       number of parameters
-     *  @param  callback    callback to inform of success or failure
-     */
+       /**
+     	*  Execute statement with given parameters
+     	*
+     	*  @param  parameters  input parameters
+     	*  @param  count       number of parameters
+     	*  @param  callback    callback to inform of success or failure
+     	*/
 	void execute(Php::Parameters &parameters);
 	
-	/**
-     *  Execute statement query with given parameters
-     *
-     *  @param  callback    callback to inform of success or failure
-     */
-    void executeQuery(Php::Parameters &parameters);
+       /**
+     	*  Execute statement query with given parameters
+     	*
+     	*  @param  callback    callback to inform of success or failure
+     	*/
+    	void executeQuery(Php::Parameters &parameters);
 };
 
 /**
- *	End namespace
+ *  End of namespace
  */	
 }
