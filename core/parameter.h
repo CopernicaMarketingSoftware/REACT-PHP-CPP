@@ -31,7 +31,6 @@ private:
 	std::shared_ptr<React::MySQL::Parameter> _parameter;
 	
 public:
-	
 	/**
 	 *  Constructor
 	 */
