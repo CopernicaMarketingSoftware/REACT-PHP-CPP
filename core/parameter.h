@@ -1,9 +1,9 @@
 /**
- *	Parameter.h
+ *  Parameter.h
  *
- *	Input parameter for MySQL prepared statement
+ *  Input parameter for MySQL prepared statement
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
  
 /**
