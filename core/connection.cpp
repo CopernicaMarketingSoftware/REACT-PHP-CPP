@@ -1,9 +1,9 @@
 /**
- *  	Connection.cpp
+ *  Connection.cpp
  * 
- *  	Class representing a connection to a MySQL or MariaDB daemon
+ *  Class representing a connection to a MySQL or MariaDB daemon
  * 
- * 	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
@@ -18,7 +18,7 @@
 #include <phpcpp.h>
 
 /**
- * Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 	
