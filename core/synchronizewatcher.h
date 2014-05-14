@@ -1,9 +1,9 @@
 /**
- *	SynchronizeWatcher.h
+ *  SynchronizeWatcher.h
  *
- *	Wrapper around the REACT-CPP Synchronize watcher class
+ *  Wrapper around the REACT-CPP Synchronize watcher class
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
