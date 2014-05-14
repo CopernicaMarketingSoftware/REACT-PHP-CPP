@@ -15,12 +15,12 @@
 #include <reactcpp/mysql.h>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 	
 /**
- *	Class definition
+ *  Class definition
  */
 class ResultField : public Php::Base
 {
@@ -89,6 +89,6 @@ public:
 };
 
 /**
- * 	End namespace
+ *  End of namespace
  */
 }
