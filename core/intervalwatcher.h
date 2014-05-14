@@ -13,12 +13,12 @@
 #include <reactcpp.h>
 
 /**
- *	Set up namespace
+ * Set up namespace
  */
 namespace ReactPhp {
 
 /**
- *	Class definition
+ * Class definition
  */
 class IntervalWatcher : public Php::Base
 {
@@ -105,6 +105,6 @@ public:
 };
 
 /**
- *  End of namespace
+ *  End namespace
  */
 }
