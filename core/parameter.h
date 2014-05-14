@@ -14,12 +14,12 @@
 #include <reactcpp/mysql.h>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 	
 /**
- *	Class definition
+ *  Class definition
  */
 class Parameter : public Php::Base
 {
@@ -60,9 +60,9 @@ public:
 	}
 	
 	/**
-	 * 	Constructor
+	 *  Constructor
 	 * 
-	 * 	@param value	parameter value
+	 *  @param value	parameter value
 	 */
 	void __construct(Php::Parameters &parameters)
 	{
@@ -74,6 +74,6 @@ public:
 };
 
 /**
- *	End namespace
+ *  End namespace
  */
 }
