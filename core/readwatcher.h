@@ -1,9 +1,9 @@
 /**
- *	ReadWatcher.h
+ *  ReadWatcher.h
  *
- *	Wrapper around the REACT-CPP Read watcher class
+ *  Wrapper around the REACT-CPP Read watcher class
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
