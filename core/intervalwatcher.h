@@ -1,9 +1,9 @@
 /**
- *	IntervalWatcher.h
+ *  IntervalWatcher.h
  *
- *	Wrapper around the REACT-CPP Interval watcher class
+ *  Wrapper around the REACT-CPP Interval watcher class
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
@@ -18,7 +18,7 @@
 namespace ReactPhp {
 
 /**
- * Class definition
+ *  Class definition
  */
 class IntervalWatcher : public Php::Base
 {
