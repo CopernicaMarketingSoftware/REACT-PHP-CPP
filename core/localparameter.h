@@ -14,12 +14,12 @@
 #include <reactcpp/mysql.h>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 	
 /**
- *	Class definition
+ *  Class definition
  */
 class LocalParameter : public Php::Base
 {
@@ -31,7 +31,6 @@ private:
 	std::shared_ptr<React::MySQL::LocalParameter> _localParameter;
 	
 public:
-	
 	/**
 	 *  Constructor
 	 */
