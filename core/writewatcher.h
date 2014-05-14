@@ -91,7 +91,7 @@ public:
 };
 
 /**
- *   End namespace
+ *   End of namespace
  */
 }
 
