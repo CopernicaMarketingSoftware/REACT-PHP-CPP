@@ -226,7 +226,3 @@ $connection->query("SELECT * FROM Persons", function($result) {
 // run the event loop
 $loop->run();
 ```
-
-At this point, we should state that there are two ways to iterate over the result set produced by the query.
-The first (used in the above script) uses the Php::Traversable class of the PHP-CPP library, which enables classes to be used in foreach loops, just like regular arrays.
-The second way (in comments at the above script) iterates over each valid result and dumps each individual row to the screen, as long as the size of the result set is not exceeded.
