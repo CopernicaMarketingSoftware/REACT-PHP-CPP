@@ -1,11 +1,11 @@
 /**
- *	Extension.cpp
+ *  Extension.cpp
  *
- *	Starting point for the REACT-PHP-CPP extension. In this file all
- *	classes and methods that are defined by the extension are
- *	registered to PHP
+ *  Starting point for the REACT-PHP-CPP extension. In this file all
+ *  classes and methods that are defined by the extension are
+ *  registered to PHP
  *
- * 	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
