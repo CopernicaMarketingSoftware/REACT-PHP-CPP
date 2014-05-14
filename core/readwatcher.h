@@ -13,19 +13,19 @@
 #include <reactcpp.h>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 
 /**
- *	Class definition
+ *  Class definition
  */
 class ReadWatcher : public Php::Base
 {
 private:
 	/**
 	 *  The actual Read watcher object
-	 * 	@var	std::shared_ptr
+	 *  @var	std::shared_ptr
 	 */
 	std::shared_ptr<React::ReadWatcher> _watcher;
 	
@@ -91,6 +91,6 @@ public:
 };
 
 /**
- * 	End of namespace
+ *  End namespace
  */
 }
