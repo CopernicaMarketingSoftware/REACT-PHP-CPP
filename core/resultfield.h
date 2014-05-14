@@ -1,10 +1,10 @@
 /**
- *  	ResultField.h
+ *  ResultField.h
  *
- *  	A single field from a single row from
- *  	a MySQL result set
+ *  A single field from a single row from
+ *  a MySQL result set
  *
- *  	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
  
 /**
