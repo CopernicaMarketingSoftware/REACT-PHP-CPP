@@ -52,20 +52,20 @@ public:
 			
 	public:
 		/**
-		 * 	Constructor
+		 *  Constructor
 		 */
 		ResultIterator();
 		
 		/**
 		 *  Constructor
 		 *  @param  object      The Php::Base object that is being iterated over
-		 *  @param  result		The result from the database query
+		 *  @param  result	The result from the database query
 		 */
 		ResultIterator(Result *object, React::MySQL::Result *result) :
 			Php::Iterator(object), _result(result) {}
 						
 		/**
-		 * 	Destructor
+		 *  Destructor
 		 */
 		virtual ~ResultIterator() {}
 					
