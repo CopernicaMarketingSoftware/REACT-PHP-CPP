@@ -85,6 +85,6 @@ void Connection::query(Php::Parameters &parameters)
 }
 
 /**
- *  End namespace
+ *  End of namespace
  */
 }
