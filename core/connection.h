@@ -1,9 +1,9 @@
 /**
- *	Connection.h
+ *  Connection.h
  *
- *	Class representing a connection to a MySQL daemon
+ *  Class representing a connection to a MySQL daemon
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
  
 /**
@@ -14,12 +14,12 @@
 #include <reactcpp/mysql.h>
 
 /**
- * Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 	
 /**
- * Class definition
+ *  Class definition
  */
 class Connection : public Php::Base
 {
@@ -95,6 +95,6 @@ public:
 };
 
 /**
- * End of namespace
+ *  End of namespace
  */
 }
