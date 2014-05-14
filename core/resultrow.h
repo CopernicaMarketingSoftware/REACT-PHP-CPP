@@ -1,9 +1,9 @@
 /**
- *	ResultRow.h
+ *  ResultRow.h
  *
- *	Class with result data for a single MySQL row
+ *  Class with result data for a single MySQL row
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
  
 /**
@@ -16,12 +16,12 @@
 #include <iostream>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 	
 /**
- *	Class definition
+ *  Class definition
  */
 class ResultRow : public Php::Base, public Php::Traversable
 {
@@ -39,8 +39,8 @@ public:
 	private:
 	/**
 	 *  The result that is being iterated over
-	 *  This is a pointer to the actual result
-	 *  @var React::MySQL::Result
+	 *  This is a pointer to the actual result row
+	 *  @var React::MySQL::ResultRow
 	 */
 	React::MySQL::ResultRow *_resultRow;
 			
@@ -52,20 +52,20 @@ public:
 			
 	public:
 		/**
-		 * 	Constructor
+		 *  Constructor
 		 */
 		ResultRowIterator();
 		
 		/**
 		 *  Constructor
 		 *  @param  object      The Php::Base object that is being iterated over
-		 *  @param  result		The result from the database query
+		 *  @param  result	The result from the database query
 		 */
 		ResultRowIterator(ResultRow *object, React::MySQL::ResultRow *resultRow) :
 			Php::Iterator(object), _resultRow(resultRow) {}
 						
 		/**
-		 * 	Destructor
+		 *  Destructor
 		 */
 		virtual ~ResultRowIterator() {}
 					
@@ -123,7 +123,7 @@ public:
 	};
 	
 	/**
-	 * 	Constructor
+	 *  Constructor
 	 */
 	ResultRow();
 		
@@ -178,6 +178,6 @@ public:
 };
 
 /**
- * 	End namespace
+ *  End of namespace
  */
 }
