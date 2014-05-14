@@ -1,9 +1,9 @@
 /**
- *	LocalParameter.h
+ *  LocalParameter.h
  *
- *	A parameter in a local prepared-statement-like query.
+ *  A parameter in a local prepared-statement-like query.
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
  
 /**
