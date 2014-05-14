@@ -1,9 +1,9 @@
 /**
- *	TimeoutWatcher.h
+ *  TimeoutWatcher.h
  *
- *	Wrapper around the REACT-CPP Timeout watcher class
+ *  Wrapper around the REACT-CPP Timeout watcher class
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
