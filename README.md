@@ -214,9 +214,7 @@ $connection->query("SELECT * FROM Persons", function($result) {
 /*	for ($i = 0; $i < $result->size(); $i++)
 	{
 		echo("{\n");
-		
 		$result->fetchRow($i);
-		
 		echo("}\n");
 	}
 */	
