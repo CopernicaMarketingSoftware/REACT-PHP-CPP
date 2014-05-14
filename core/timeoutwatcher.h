@@ -13,19 +13,19 @@
 #include <reactcpp.h>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 
 /**
- *	Class definition
+ *  Class definition
  */
 class TimeoutWatcher : public Php::Base
 {
 private:
 	/**
 	 *  The actual Timeout watcher object
-	 * 	@var	std::shared_ptr
+	 *  @var	std::shared_ptr
 	 */
 	std::shared_ptr<React::TimeoutWatcher> _watcher;
 	
@@ -49,7 +49,7 @@ public:
 	/**
 	 *  Alternative constructor
 	 *  @param	loop
-	 * 	@param	timeout
+	 *  @param	timeout
 	 *  @param	callback
 	 */
 	void __construct(Php::Parameters &parameters)
@@ -72,7 +72,7 @@ public:
 	
 	/**
 	 *  Start the timer
-	 * 	This is only meaningful if the timer is not yet running
+	 *  This is only meaningful if the timer is not yet running
 	 *  @return bool
 	 */
 	Php::Value start()
@@ -82,7 +82,7 @@ public:
 	
 	/**
 	 *  Cancel the timer
-	 *	@return bool
+	 *  @return bool
 	 */
 	Php::Value cancel()
 	{
@@ -91,7 +91,7 @@ public:
 	
 	/**
 	 *  Set the timeout
-	 * 	@param	timeout
+	 *  @param	timeout
 	 *  @return	bool
 	 */
 	Php::Value set(Php::Parameters &parameters)
@@ -101,6 +101,6 @@ public:
 };
 
 /**
- *  End of namespace
+ *  End namespace
  */
 }
