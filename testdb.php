@@ -1,5 +1,4 @@
 <?php
-
 /**
  *  REACT-PHP-CPP test mysql connection file
  * 
@@ -45,9 +44,10 @@ $statement->execute(function() {
 		// wrap each row in curly braces
 		echo("{ ");
 		
-		// and dump all the result fields to the screen
+		// iterate over each individual row of the result set
 		foreach ($resultRow as $resultField)
 		{
+			// and dump all the result fields to the screen
 			echo("$resultField ");
 		}
 		
@@ -61,7 +61,7 @@ $statement->execute(function() {
 */
 
 // query the database
-$connection->query("SELECT * FROM Persons LIMIT 10", function($result) {
+$connection->query("SELECT * FROM Persons LIMIT 2", function($result) {
 	
 	// iterate over the result set
 	foreach ($result as $row)
@@ -69,9 +69,10 @@ $connection->query("SELECT * FROM Persons LIMIT 10", function($result) {
 		// wrap each row in curly braces
 		echo("{ ");
 		
-		// and dump all the result fields to the screen
+		// iterate over each individual row of the result set
 		foreach ($row as $field)
 		{
+			// and dump all the result fields to the screen
 			echo("$field ");
 		}
 		
