@@ -1,9 +1,9 @@
 /**
- *	WriteWatcher.h
+ *  WriteWatcher.h
  *
- *	Wrapper around the REACT-CPP Write watcher class
+ *  Wrapper around the REACT-CPP Write watcher class
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
@@ -94,4 +94,3 @@ public:
  *   End of namespace
  */
 }
-
