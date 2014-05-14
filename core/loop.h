@@ -1,9 +1,9 @@
 /**
- *	Loop.h
+ *  Loop.h
  *
- *	Main event loop class that runs the main PHP event loop
+ *  Main event loop class that runs the main PHP event loop
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
@@ -61,7 +61,7 @@ public:
 	
 	/**
 	 *  Run the loop
-	 *  @return	bool
+	 *  @return bool
 	 */
 	Php::Value run()
 	{
@@ -88,7 +88,7 @@ public:
 	}
 
 	/**
-	 * Resume the loop after it was suspended
+	 *  Resume the loop after it was suspended
 	 */
 	void resume()
 	{
