@@ -1,6 +1,6 @@
 <?php
 /**
- *	REACT-PHP-CPP test mysql connection file
+ *  REACT-PHP-CPP test mysql connection file
  * 
  *  @copyright 2014 Copernica BV
  */
@@ -39,9 +39,20 @@ $statement->execute(function() {
 	
 	echo("Executing statement....\n");
 	
-	for ($i = 0; $i < $res->size(); $i++)
+	foreach ($res as $resultRow)
 	{
-		$res->fetch($i);
+		// wrap each row in curly braces
+		echo("{ ");
+		
+		// and dump all the result fields to the screen
+		foreach ($resultRow as $resultField)
+		{
+			echo("$resultField ");
+		}
+		
+		// close the row
+		echo("}\n");
+		
 	}
 	
 	return false;	
@@ -49,11 +60,12 @@ $statement->execute(function() {
 */
 
 // query the database
-$connection->query("SELECT * FROM Persons LIMIT 2", function($result) {
+$connection->query("SELECT * FROM Persons LIMIT 10", function($result) {
 	
 	// iterate over the result set
 	foreach ($result as $row)
 	{
+		// wrap each row in curly braces
 		echo("{ ");
 		
 		// and dump all the result fields to the screen
@@ -62,14 +74,20 @@ $connection->query("SELECT * FROM Persons LIMIT 2", function($result) {
 			echo("$field ");
 		}
 		
+		// close the row
 		echo("}\n");
 	}
 	
 	// alternative way -> iterate over the result set and fetch each individual row
 /*	for ($i = 0; $i < $result->size(); $i++)
 	{
+		// wrap each row in curly braces
 		echo("{\n");
+		
+		// fetch the row and dump it to the screen
 		$result->fetchRow($i);
+		 
+		// close the row
 		echo("}\n");
 	}
 */	
@@ -78,3 +96,4 @@ $connection->query("SELECT * FROM Persons LIMIT 2", function($result) {
 
 // run the event loop
 $loop->run();
+
