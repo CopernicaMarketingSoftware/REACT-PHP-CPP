@@ -1,9 +1,9 @@
 /**
- * 	Loop.cpp
+ *  Loop.cpp
  * 
- * 	Implementation of the event loop
+ *  Implementation of the event loop
  * 
- * 	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
@@ -18,7 +18,7 @@
 #include "synchronizewatcher.h"
 
 /**
- * Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 
@@ -69,9 +69,9 @@ Php::Value Loop::onWritable(Php::Parameters &parameters)
 }
 
 /**
- * Register a synchronize function
- * @param	callback	Function that is called when the file descriptor is readable
- * @return	object		SynchronizeWatcher object that can be used for cancelling the timer
+ *  Register a synchronize function
+ *  @param	callback	Function that is called when the file descriptor is readable
+ *  @return	object		SynchronizeWatcher object that can be used for cancelling the timer
  */
 Php::Value Loop::onSynchronize(Php::Parameters &parameters)
 {
