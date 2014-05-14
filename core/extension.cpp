@@ -1,7 +1,7 @@
 /**
  *	Extension.cpp
  *
- *	Starting point for the event loop extension. In this file all
+ *	Starting point for the REACT-PHP-CPP extension. In this file all
  *	classes and methods that are defined by the extension are
  *	registered to PHP
  *
