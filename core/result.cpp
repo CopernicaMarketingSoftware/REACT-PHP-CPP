@@ -13,7 +13,7 @@
 #include <iostream>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 	
@@ -82,6 +82,6 @@ Php::Value Result::end()
 }
 
 /**
- * 	End namespace
+ *   End of namespace
  */	
 }
