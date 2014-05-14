@@ -1,9 +1,9 @@
 /**
- *  Loop.cpp
+ * 	Loop.cpp
  * 
- *  Implementation of the event loop
+ * 	Implementation of the event loop
  * 
- *  @copyright 2014 Copernica BV
+ * 	@copyright 2014 Copernica BV
  */
 
 /**
