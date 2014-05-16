@@ -1,9 +1,9 @@
 /**
- *  TimeoutWatcher.h
+ *	TimeoutWatcher.h
  *
- *  Wrapper around the REACT-CPP Timeout watcher class
+ *	Wrapper around the REACT-CPP Timeout watcher class
  *
- *  @copyright 2014 Copernica BV
+ *	@copyright 2014 Copernica BV
  */
 
 /**
@@ -13,19 +13,19 @@
 #include <reactcpp.h>
 
 /**
- *  Set up namespace
+ *	Set up namespace
  */
 namespace ReactPhp {
 
 /**
- *  Class definition
+ *	Class definition
  */
 class TimeoutWatcher : public Php::Base
 {
 private:
 	/**
 	 *  The actual Timeout watcher object
-	 *  @var	std::shared_ptr
+	 * 	@var	std::shared_ptr
 	 */
 	std::shared_ptr<React::TimeoutWatcher> _watcher;
 	
@@ -49,7 +49,7 @@ public:
 	/**
 	 *  Alternative constructor
 	 *  @param	loop
-	 *  @param	timeout
+	 * 	@param	timeout
 	 *  @param	callback
 	 */
 	void __construct(Php::Parameters &parameters)
@@ -63,16 +63,18 @@ public:
 		Loop *loop = (Loop *)loopParam.implementation();
 		
 		// create the actual timer-watcher
-		_watcher = std::make_shared<React::TimeoutWatcher>(loop->loop(), timeout, [callback]() {
+		_watcher = std::make_shared<React::TimeoutWatcher>(loop->loop(), timeout, [callback]() -> bool {
 			
 			// pass the call on to PHP
 			callback();
+			
+			return true;
 		});
 	}
 	
 	/**
 	 *  Start the timer
-	 *  This is only meaningful if the timer is not yet running
+	 * 	This is only meaningful if the timer is not yet running
 	 *  @return bool
 	 */
 	Php::Value start()
@@ -82,7 +84,7 @@ public:
 	
 	/**
 	 *  Cancel the timer
-	 *  @return bool
+	 *	@return bool
 	 */
 	Php::Value cancel()
 	{
@@ -91,7 +93,7 @@ public:
 	
 	/**
 	 *  Set the timeout
-	 *  @param	timeout
+	 * 	@param	timeout
 	 *  @return	bool
 	 */
 	Php::Value set(Php::Parameters &parameters)
