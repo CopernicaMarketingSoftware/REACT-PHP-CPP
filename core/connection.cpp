@@ -9,13 +9,10 @@
 /**
  *  Dependencies
  */
+#include <phpcpp.h>
 #include "connection.h"
 #include "loop.h"
 #include "result.h"
-#include "localparameter.h"
-#include <iostream>
-#include <cassert>
-#include <phpcpp.h>
 
 /**
  *  Set up namespace
