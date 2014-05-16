@@ -68,7 +68,7 @@ public:
 		{
 			// the iterator is valid as long as the current position points
 			// to a valid row
-			//return (unsigned int)_current < _result->size();
+			return true;
 		}
 				
 		/**
