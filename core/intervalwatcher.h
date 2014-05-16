@@ -1,9 +1,9 @@
 /**
- *  IntervalWatcher.h
+ *	IntervalWatcher.h
  *
- *  Wrapper around the REACT-CPP Interval watcher class
+ *	Wrapper around the REACT-CPP Interval watcher class
  *
- *  @copyright 2014 Copernica BV
+ *	@copyright 2014 Copernica BV
  */
 
 /**
@@ -13,19 +13,19 @@
 #include <reactcpp.h>
 
 /**
- *  Set up namespace
+ *	Set up namespace
  */
 namespace ReactPhp {
 
 /**
- *  Class definition
+ *	Class definition
  */
 class IntervalWatcher : public Php::Base
 {
 private:
 	/**
 	 *  The actual Interval watcher object
-	 *  @var	std::shared_ptr
+	 * 	@var	std::shared_ptr
 	 */
 	std::shared_ptr<React::IntervalWatcher> _watcher;
 	
@@ -49,8 +49,8 @@ public:
 	/**
 	 *  Alternative constructor
 	 *  @param	loop
-	 *  @param	Initial timeout
-	 *  @param	Timeout interval period
+	 * 	@param	Initial timeout
+	 * 	@param	Timeout interval period
 	 *  @param	Function that is called when timer is expired
 	 */
 	 void __construct(Php::Parameters &parameters)
@@ -65,16 +65,18 @@ public:
 		Loop *loop = (Loop *)loopParam.implementation();
 		
 		// create the actual interval-watcher
-		_watcher = std::make_shared<React::IntervalWatcher>(loop->loop(), initial, interval, [callback]() {
+		_watcher = std::make_shared<React::IntervalWatcher>(loop->loop(), initial, interval, [callback]() -> bool{
 			
 			// pass the call on to PHP
 			callback();
+			
+			return true;
 		});
 	}
 	
 	/**
 	 *  Start the timer
-	 *  This is only meaningful if the timer is not yet running
+	 * 	This is only meaningful if the timer is not yet running
 	 *  @return bool
 	 */
 	Php::Value start()
@@ -84,19 +86,19 @@ public:
 	
 	/**
 	 *  Cancel the timer
-	 *  @return bool
+	 *	@return bool
 	 */
 	Php::Value cancel()
 	{
 		return _watcher->cancel();
 	}
 	
-       /**
-     	*  Set the timer to a new time
-     	*  @param  initial     Initial timeout for the first timeout
-     	*  @param  interval    Interval for subsequent timeouts
-     	*  @return bool
-     	*/
+	/**
+     	 *  Set the timer to a new time
+     	 *  @param  initial     Initial timeout for the first timeout
+     	 *  @param  interval    Interval for subsequent timeouts
+     	 *  @return bool
+     	 */
 	Php::Value set(Php::Parameters &parameters)
 	{
 		return _watcher->set(parameters[0], parameters[1]);
