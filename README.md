@@ -243,3 +243,7 @@ $loop->run();
 
 ```
 
+At this point, we should state that there are two ways to iterate over the result set produced by the query.
+The first (used in the above script) uses the Php::Traversable class of the PHP-CPP library, which enables classes to be used in foreach loops, just like regular arrays.
+The second way (in comments at the above script) iterates over each valid result and dumps each individual row to the screen, as long as the size of the result set is not exceeded.
+The difference between these two ways lies in the fact that when using the foreach loop the results of the query are being printed in the PHP user space, whereas when using the for loop they are put to the screen through C++. As a consequence, we can say that the former way is a more 'valid' way to output the query results.
