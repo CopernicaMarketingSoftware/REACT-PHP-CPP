@@ -9,7 +9,6 @@
 /**
  *  Dependencies
  */
-#include <iostream>
 #include "loop.h"
 #include "timeoutwatcher.h"
 #include "intervalwatcher.h"
