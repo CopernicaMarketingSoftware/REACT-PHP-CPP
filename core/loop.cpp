@@ -3,27 +3,30 @@
  * 
  *  Implementation of the event loop
  * 
- *  @copyright 2014 Copernica BV
+ * 	@copyright 2014 Copernica BV
  */
 
 /**
  *  Dependencies
  */
+#include <iostream>
 #include "loop.h"
 #include "timeoutwatcher.h"
 #include "intervalwatcher.h"
 #include "readwatcher.h"
 #include "writewatcher.h"
 #include "synchronizewatcher.h"
+#include "signalwatcher.h"
+#include "statuswatcher.h"
 
 /**
- *  Set up namespace
+ *	Set up namespace
  */
 namespace ReactPhp {
 
 /**
  * Function which is called the moment a file descriptor becomes readable
- * @param	fd		The file descriptor
+ * @param	fd			The file descriptor
  * @param	callback	Function that is called when the file descriptor is readable
  * @return	object		ReadWatcher object that can be used for cancelling the timer
  */
@@ -33,11 +36,13 @@ Php::Value Loop::onReadable(Php::Parameters &parameters)
 	int fd = parameters[0];
 	Php::Value callback = parameters[1];
 	
-	//call the Loop::onReadable function
-	auto reader = _loop.onReadable(fd, [callback]() {
+	// call the Loop::onReadable function
+	auto reader = _loop.onReadable(fd, [callback]() -> bool{
 		
-		//call the PHP callback
+		// call the PHP callback
 		callback();
+		
+		return true;
 	});
 	
 	// create a new PHP object, and return that
@@ -46,7 +51,7 @@ Php::Value Loop::onReadable(Php::Parameters &parameters)
 
 /**
  * Function which is called the moment a file descriptor becomes writable
- * @param	fd		The file descriptor
+ * @param	fd			The file descriptor
  * @param	callback	Function that is called when the file descriptor is readable
  * @return	object		WriteWatcher object that can be used for cancelling the timer
  */
@@ -57,10 +62,12 @@ Php::Value Loop::onWritable(Php::Parameters &parameters)
 	Php::Value callback = parameters[1];
 	
 	//call the Loop::onReadable function
-	auto writer = _loop.onWritable(fd, [callback]() {
+	auto writer = _loop.onWritable(fd, [callback]() -> bool {
 		
 		//call the PHP callback
 		callback();
+		
+		return true;
 	});
 	
 	// create a new PHP object, and return that
@@ -68,9 +75,9 @@ Php::Value Loop::onWritable(Php::Parameters &parameters)
 }
 
 /**
- *  Register a synchronize function
- *  @param	callback	Function that is called when the file descriptor is readable
- *  @return	object		SynchronizeWatcher object that can be used for cancelling the timer
+ * Register a synchronize function
+ * @param	callback	Function that is called when the file descriptor is readable
+ * @return	object		SynchronizeWatcher object that can be used for cancelling the timer
  */
 Php::Value Loop::onSynchronize(Php::Parameters &parameters)
 {
@@ -78,10 +85,12 @@ Php::Value Loop::onSynchronize(Php::Parameters &parameters)
 	Php::Value callback = parameters[0];
 	
 	//call the Loop::onReadable function
-	auto synchronizer = _loop.onSynchronize([callback]() {
+	auto synchronizer = _loop.onSynchronize([callback]() -> bool {
 		
 		//call the PHP callback
 		callback();
+		
+		return true;
 	});
 	
 	// create a new PHP object, and return that
@@ -90,9 +99,9 @@ Php::Value Loop::onSynchronize(Php::Parameters &parameters)
 
 /**
  *  Run a timeout after a while
- *  @param	timeout		Number of seconds (as a float) to wait for the timer to be called
+ * 	@param	timeout		Number of seconds (as a float) to wait for the timer to be called
  *  @param	callback	Function that is called when timer expires
- *  @return	object		TimeoutWatcher object that can be used for cancelling the timer
+ * 	@return	object		TimeoutWatcher object that can be used for cancelling the timer
  */
 Php::Value Loop::onTimeout(Php::Parameters &parameters)
 {
@@ -101,10 +110,12 @@ Php::Value Loop::onTimeout(Php::Parameters &parameters)
 	Php::Value callback = parameters[1];
 	
 	// call the Loop::onTimeout function
-	auto timer = _loop.onTimeout(timeout, [callback]() {
+	auto timer = _loop.onTimeout(timeout, [callback]() -> bool {
 		
 		// call the PHP callback
 		callback();
+		
+		return true;
 	});
 
 	// create a new PHP object, and return that
@@ -124,10 +135,12 @@ Php::Value Loop::onInterval(Php::Parameters &parameters)
 	Php::Value callback = parameters[1];
 	
 	// call the Loop::onInterval function
-	auto watcher = _loop.onInterval(interval, interval, [callback]() {
+	auto watcher = _loop.onInterval(interval, interval, [callback]() -> bool {
 		
 		// call the PHP callback
 		callback();
+		
+		return true;
 	});
 
 	// create a new PHP object, and return that
@@ -135,7 +148,56 @@ Php::Value Loop::onInterval(Php::Parameters &parameters)
 }
 
 /**
- *  End of namespace
+ * Register a function that is called the moment a signal is fired.
+ * @param signum The signal
+ * @param callback Function that is called the moment the signal is caught
+ * @return Object that can be used to stop checking for signals
+ */
+Php::Value Loop::onSignal(Php::Parameters &parameters)
+{
+	// the signal and the callback function
+	Php::Value signum = parameters[0];
+	Php::Value callback = parameters[1];
+	
+	// call the MainLoop::onSignal function
+	auto signal = _mainLoop.onSignal(signum, [callback] () -> bool {
+		
+		// call the PHP callback
+		callback();
+		
+		return true;
+	});
+	
+	return Php::Object("Async\\SignalWatcher", new SignalWatcher(signal));
+}
+
+/**
+ * Register a function that is called the moment the status of a child changes
+ * @param pid The child PID
+ * @param trace Monitor for all status changes (true) or only for child exits (false)
+ * @param callback Function that is called the moment the child changes status
+ * @return Object that can be used to stop checking for status changes
+ */
+Php::Value Loop::onStatusChange(Php::Parameters &parameters)
+{
+	// the pid, trace and callback function
+	Php::Value pid = parameters[0];
+	Php::Value trace = parameters[1];
+	Php::Value callback = parameters[2];
+	
+	// call the MainLoop::onStatusChange function
+	auto status = _mainLoop.onStatusChange(pid, trace, [callback] (int, int) -> bool {
+		
+		// call the PHP callback
+		callback();
+		
+		return true;
+	});
+	
+	return Php::Object("Async\\StatusWatcher", new StatusWatcher(status));
+}
+/**
+ *  End namespace
  */
 }
 
