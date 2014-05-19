@@ -1,7 +1,7 @@
 /**
- * Resolver.cpp
+ *  Resolver.cpp
  *
- * @copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
  
 /**
@@ -13,7 +13,7 @@
 #include <iostream>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 	
@@ -34,11 +34,11 @@ void Resolver::__construct(Php::Parameters &params)
 }
 
 /**
- * Find all IP addresses for a certain domain
- * @param domain The domain to fetch the IPs for
- * @param version IP version, can be 4 or 6
- * @param callback
- * @return bool
+ *  Find all IP addresses for a certain domain
+ *  @param domain The domain to fetch the IPs for
+ *  @param version IP version, can be 4 or 6
+ *  @param callback
+ *  @return bool
  */
 void Resolver::ip(Php::Parameters &params)
 {
@@ -59,15 +59,13 @@ void Resolver::ip(Php::Parameters &params)
 		// fetch all IPs
 		for (auto &ip : ips) std::cout << ip << std::endl;
 	});
-	
-	
 }
 
 /**
- * Find all MX records for a certain domain
- * @param domain The domain name to search MX records for
- * @param callback Callback that is called when found
- * @return bool
+ *  Find all MX records for a certain domain
+ *  @param domain The domain name to search MX records for
+ *  @param callback Callback that is called when found
+ *  @return bool
  */
 Php::Value Resolver::mx(Php::Parameters &params)
 {
@@ -91,6 +89,6 @@ Php::Value Resolver::mx(Php::Parameters &params)
 }
 
 /**
- * 	End of namespace
+ *  End of namespace
  */
 }
