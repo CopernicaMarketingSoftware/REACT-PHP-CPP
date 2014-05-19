@@ -12,7 +12,7 @@
 namespace ReactPhp{
 
 /**
- *	Class definition
+ *  Class definition
  */
 class ResolverResult : public Php::Base, public Php::Traversable
 {
@@ -43,7 +43,7 @@ public:
 			
 	public:
 		/**
-		 * 	Constructor
+		 *  Constructor
 		 */
 		ResolverResultIterator();
 		
@@ -56,7 +56,7 @@ public:
 			Php::Iterator(object), _mxResult(mxResult) {}
 						
 		/**
-		 * 	Destructor
+		 *  Destructor
 		 */
 		virtual ~ResolverResultIterator() {}
 					
@@ -125,11 +125,11 @@ public:
 	 */
 	virtual ~ResolverResult() {}
 	
-	/**
-     *  Get the iterator
-     *  @return Php::Iterator
-     */
-    virtual Php::Iterator *getIterator() override
+       /**
+     	*  Get the iterator
+     	*  @return Php::Iterator
+     	*/
+    	virtual Php::Iterator *getIterator() override
 	{
 		// construct a new result iterator on the heap
 		// the (PHP-CPP library will delete it when ready)
