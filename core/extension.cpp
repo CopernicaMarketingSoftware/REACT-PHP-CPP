@@ -1,11 +1,11 @@
 /**
- *	Extension.cpp
+ * Extension.cpp
  *
- *	Starting point for the event loop extension. In this file all
- *	classes and methods that are defined by the extension are
- *	registered to PHP
+ * Starting point for the event loop extension. In this file all
+ * classes and methods that are defined by the extension are
+ * registered to PHP
  *
- * 	@copyright 2014 Copernica BV
+ * @copyright 2014 Copernica BV
  */
 
 /**
@@ -62,33 +62,33 @@ extern "C"
         timeoutWatcher.method("cancel", &ReactPhp::TimeoutWatcher::cancel);
         timeoutWatcher.method("set", &ReactPhp::TimeoutWatcher::set);
       
-		// the read watcher class
-		Php::Class<ReactPhp::ReadWatcher> readWatcher("ReadWatcher");
-		readWatcher.method("__construct", &ReactPhp::ReadWatcher::__construct);
-		readWatcher.method("cancel", &ReactPhp::ReadWatcher::cancel);
-		readWatcher.method("resume", &ReactPhp::ReadWatcher::resume);
+	// the read watcher class
+	Php::Class<ReactPhp::ReadWatcher> readWatcher("ReadWatcher");
+	readWatcher.method("__construct", &ReactPhp::ReadWatcher::__construct);
+	readWatcher.method("cancel", &ReactPhp::ReadWatcher::cancel);
+	readWatcher.method("resume", &ReactPhp::ReadWatcher::resume);
 		
-		// the write watcher class
-		Php::Class<ReactPhp::WriteWatcher> writeWatcher("WriteWatcher");
-		writeWatcher.method("__construct", &ReactPhp::WriteWatcher::__construct);
-		writeWatcher.method("cancel", &ReactPhp::WriteWatcher::cancel);
-		writeWatcher.method("resume", &ReactPhp::WriteWatcher::resume);
+	// the write watcher class
+	Php::Class<ReactPhp::WriteWatcher> writeWatcher("WriteWatcher");
+	writeWatcher.method("__construct", &ReactPhp::WriteWatcher::__construct);
+	writeWatcher.method("cancel", &ReactPhp::WriteWatcher::cancel);
+	writeWatcher.method("resume", &ReactPhp::WriteWatcher::resume);
 		
-		// the interval watcher class
-		Php::Class<ReactPhp::IntervalWatcher> intervalWatcher("IntervalWatcher");
-		intervalWatcher.method("__construct", &ReactPhp::IntervalWatcher::__construct);
-		intervalWatcher.method("start", &ReactPhp::IntervalWatcher::start);
+	// the interval watcher class
+	Php::Class<ReactPhp::IntervalWatcher> intervalWatcher("IntervalWatcher");
+	intervalWatcher.method("__construct", &ReactPhp::IntervalWatcher::__construct);
+	intervalWatcher.method("start", &ReactPhp::IntervalWatcher::start);
         intervalWatcher.method("cancel", &ReactPhp::IntervalWatcher::cancel);
         intervalWatcher.method("set", &ReactPhp::IntervalWatcher::set);
         
-		// the synchronize watcher class
-		Php::Class<ReactPhp::SynchronizeWatcher> synchronizeWatcher("SynchronizeWatcher");
-		synchronizeWatcher.method("__construct", &ReactPhp::SynchronizeWatcher::__construct);
-		synchronizeWatcher.method("synchronize", &ReactPhp::SynchronizeWatcher::synchronize);
-		synchronizeWatcher.method("cancel", &ReactPhp::SynchronizeWatcher::cancel);
-		
-		// the signal watcher class
-		Php::Class<ReactPhp::SignalWatcher> signalWatcher("SignalWatcher");
+	// the synchronize watcher class
+	Php::Class<ReactPhp::SynchronizeWatcher> synchronizeWatcher("SynchronizeWatcher");
+	synchronizeWatcher.method("__construct", &ReactPhp::SynchronizeWatcher::__construct);
+	synchronizeWatcher.method("synchronize", &ReactPhp::SynchronizeWatcher::synchronize);
+	synchronizeWatcher.method("cancel", &ReactPhp::SynchronizeWatcher::cancel);
+	
+	// the signal watcher class
+	Php::Class<ReactPhp::SignalWatcher> signalWatcher("SignalWatcher");
         signalWatcher.method("__construct", &ReactPhp::SignalWatcher::__construct);
         signalWatcher.method("start", &ReactPhp::SignalWatcher::start);
         signalWatcher.method("cancel", &ReactPhp::SignalWatcher::cancel);
@@ -105,41 +105,41 @@ extern "C"
         resolver.method("ip", &ReactPhp::Resolver::ip);
         resolver.method("mx", &ReactPhp::Resolver::mx);
         
-		// the connection class
-		Php::Class<ReactPhp::Connection> connection("Connection");
-		connection.method("__construct", &ReactPhp::Connection::__construct);
-		connection.method("query", &ReactPhp::Connection::query);
+	// the connection class
+	Php::Class<ReactPhp::Connection> connection("Connection");
+	connection.method("__construct", &ReactPhp::Connection::__construct);
+	connection.method("query", &ReactPhp::Connection::query);
 		
-		// the statement class
-		Php::Class<ReactPhp::Statement> statement("Statement");
-		statement.method("__construct", &ReactPhp::Statement::__construct);
-		statement.method("execute", &ReactPhp::Statement::execute);
-		statement.method("executeQuery", &ReactPhp::Statement::executeQuery);
+	// the statement class
+	Php::Class<ReactPhp::Statement> statement("Statement");
+	statement.method("__construct", &ReactPhp::Statement::__construct);
+	statement.method("execute", &ReactPhp::Statement::execute);
+	statement.method("executeQuery", &ReactPhp::Statement::executeQuery);
 		
-		// the parameter class
-		Php::Class<ReactPhp::Parameter> parameter("Parameter");
-		parameter.method("__construct", &ReactPhp::Parameter::__construct);
+	// the parameter class
+	Php::Class<ReactPhp::Parameter> parameter("Parameter");
+	parameter.method("__construct", &ReactPhp::Parameter::__construct);
 		
-		// the local parameter class
-		Php::Class<ReactPhp::LocalParameter> localParameter("Parameter");
-		localParameter.method("__construct", &ReactPhp::LocalParameter::__construct);
+	// the local parameter class
+	Php::Class<ReactPhp::LocalParameter> localParameter("Parameter");
+	localParameter.method("__construct", &ReactPhp::LocalParameter::__construct);
+	
+	// the result class
+	Php::Class<ReactPhp::Result> result("Result");
+	result.method("valid", &ReactPhp::Result::valid);
+	result.method("size", &ReactPhp::Result::size);
+	result.method("begin", &ReactPhp::Result::begin);
+	result.method("end", &ReactPhp::Result::end);
+	result.method("fetchRow", &ReactPhp::Result::fetchRow);
 		
-		// the result class
-		Php::Class<ReactPhp::Result> result("Result");
-		result.method("valid", &ReactPhp::Result::valid);
-		result.method("size", &ReactPhp::Result::size);
-		result.method("begin", &ReactPhp::Result::begin);
-		result.method("end", &ReactPhp::Result::end);
-		result.method("fetchRow", &ReactPhp::Result::fetchRow);
+	// the result row class
+	Php::Class<ReactPhp::ResultRow> resultRow("ResultRow");
 		
-		// the result row class
-		Php::Class<ReactPhp::ResultRow> resultRow("ResultRow");
+	// the result field class
+	Php::Class<ReactPhp::ResultField> resultField("ResultField");
 		
-		// the result field class
-		Php::Class<ReactPhp::ResultField> resultField("ResultField");
-		
-		// the resolver result class
-		Php::Class<ReactPhp::ResolverResult> resolverResult("ResolverResult");
+	// the resolver result class
+	Php::Class<ReactPhp::ResolverResult> resolverResult("ResolverResult");
 		
         // add all classes to the namespace
         async.add(loop);
@@ -160,7 +160,7 @@ extern "C"
         async.add(resultField);
         async.add(resolverResult);
        
-		// add the namespace to the extension
+	// add the namespace to the extension
         extension.add(async);
         
         // return the extension module
