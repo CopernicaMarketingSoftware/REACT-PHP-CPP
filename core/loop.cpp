@@ -3,7 +3,7 @@
  * 
  *  Implementation of the event loop
  * 
- * 	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
@@ -20,7 +20,7 @@
 #include "statuswatcher.h"
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 
@@ -99,9 +99,9 @@ Php::Value Loop::onSynchronize(Php::Parameters &parameters)
 
 /**
  *  Run a timeout after a while
- * 	@param	timeout		Number of seconds (as a float) to wait for the timer to be called
+ *  @param	timeout		Number of seconds (as a float) to wait for the timer to be called
  *  @param	callback	Function that is called when timer expires
- * 	@return	object		TimeoutWatcher object that can be used for cancelling the timer
+ *  @return	object		TimeoutWatcher object that can be used for cancelling the timer
  */
 Php::Value Loop::onTimeout(Php::Parameters &parameters)
 {
@@ -148,10 +148,10 @@ Php::Value Loop::onInterval(Php::Parameters &parameters)
 }
 
 /**
- * Register a function that is called the moment a signal is fired.
- * @param signum The signal
- * @param callback Function that is called the moment the signal is caught
- * @return Object that can be used to stop checking for signals
+ *  Register a function that is called the moment a signal is fired.
+ *  @param signum The signal
+ *  @param callback Function that is called the moment the signal is caught
+ *  @return Object that can be used to stop checking for signals
  */
 Php::Value Loop::onSignal(Php::Parameters &parameters)
 {
@@ -172,11 +172,11 @@ Php::Value Loop::onSignal(Php::Parameters &parameters)
 }
 
 /**
- * Register a function that is called the moment the status of a child changes
- * @param pid The child PID
- * @param trace Monitor for all status changes (true) or only for child exits (false)
- * @param callback Function that is called the moment the child changes status
- * @return Object that can be used to stop checking for status changes
+ *  Register a function that is called the moment the status of a child changes
+ *  @param pid The child PID
+ *  @param trace Monitor for all status changes (true) or only for child exits (false)
+ *  @param callback Function that is called the moment the child changes status
+ *  @return Object that can be used to stop checking for status changes
  */
 Php::Value Loop::onStatusChange(Php::Parameters &parameters)
 {
@@ -197,7 +197,7 @@ Php::Value Loop::onStatusChange(Php::Parameters &parameters)
 	return Php::Object("Async\\StatusWatcher", new StatusWatcher(status));
 }
 /**
- *  End namespace
+ *  End of namespace
  */
 }
 
