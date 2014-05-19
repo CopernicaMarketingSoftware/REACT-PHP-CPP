@@ -1,9 +1,9 @@
 /**
- *	Loop.h
+ * Loop.h
  *
- *	Main event loop class that runs the main PHP event loop
+ * Main event loop class that runs the main PHP event loop
  *
- *	@copyright 2014 Copernica BV
+ * @copyright 2014 Copernica BV
  */
 
 /**
@@ -13,12 +13,12 @@
 #include <reactcpp.h>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 
 /**
- *	Class definition
+ *  Class definition
  */
 class Loop : public Php::Base
 {
@@ -67,8 +67,8 @@ public:
 	}
 	
 	/**
-	 * 	The current time
-	 * 	@return double
+	 * The current time
+	 * @return double
 	 */
 	Php::Value now()
 	{
@@ -113,8 +113,8 @@ public:
 	
 	/**
 	 *  Suspend the loop. While the loop is suspended, timers will not be processed,
-	 * and the time for the timers does not proceed. Once the loop is resumed, the
-	 * timers continue to run.
+	 *  and the time for the timers does not proceed. Once the loop is resumed, the
+	 *  timers continue to run.
 	 */
 	void suspend()
 	{
@@ -123,9 +123,9 @@ public:
 	
 	/**
 	 *  Run a timeout after a while
-	 * 	@param	timeout		Number of seconds (as a float) to wait for the timer to be called
+	 *  @param	timeout		Number of seconds (as a float) to wait for the timer to be called
 	 *  @param	callback	Function that is called when timer expires
-	 * 	@return	object		TimeoutWatcher object that can be used for cancelling the timer
+	 *  @return	object		TimeoutWatcher object that can be used for cancelling the timer
 	 */
 	Php::Value onTimeout(Php::Parameters &parameters);
 	
@@ -138,47 +138,47 @@ public:
 	Php::Value onInterval(Php::Parameters &parameters);
 
 	/**
- 	 * 	Function which is called the moment a file descriptor becomes readable
- 	 * 	@param	fd			The file descriptor
- 	 * 	@param	callback	Function that is called when the file descriptor is readable
- 	 * 	@return	object		ReadWatcher object that can be used for cancelling the timer
+ 	 *  Function which is called the moment a file descriptor becomes readable
+ 	 *  @param	fd			The file descriptor
+ 	 *  @param	callback	Function that is called when the file descriptor is readable
+ 	 *  @return	object		ReadWatcher object that can be used for cancelling the timer
  	 */
 	Php::Value onReadable(Php::Parameters &parameters);
 
 	/**
-	 * 	Function which is called the moment a file descriptor becomes writable
-	 * 	@param	fd			The file descriptor
-	 * 	@param	callback	Function that is called when the file descriptor is readable
-	 * 	@return	object		WriteWatcher object that can be used for cancelling the timer
+	 *  Function which is called the moment a file descriptor becomes writable
+	 *  @param	fd			The file descriptor
+	 *  @param	callback	Function that is called when the file descriptor is readable
+	 *  @return	object		WriteWatcher object that can be used for cancelling the timer
 	 */
 	Php::Value onWritable(Php::Parameters &parameters);
 
 	/**
-	 *	Register a synchronize function
-	 * 	@param	callback	Function that is called when the file descriptor is readable
-	 * 	@return	object		SynchronizeWatcher object that can be used for cancelling the timer
+	 *  Register a synchronize function
+	 *  @param	callback	Function that is called when the file descriptor is readable
+	 *  @return	object		SynchronizeWatcher object that can be used for cancelling the timer
 	 */
 	Php::Value onSynchronize(Php::Parameters &parameters);
 	
 	/**
-	 * Register a function that is called the moment a signal is fired.
-	 * @param signum The signal
-	 * @param callback Function that is called the moment the signal is caught
-	 * @return Object that can be used to stop checking for signals
+	 *  Register a function that is called the moment a signal is fired.
+	 *  @param signum The signal
+	 *  @param callback Function that is called the moment the signal is caught
+	 *  @return Object that can be used to stop checking for signals
 	 */
 	Php::Value onSignal(Php::Parameters &parameters);
 
 	/**
-	 * Register a function that is called the moment the status of a child changes
-	 * @param pid The child PID
-	 * @param trace Monitor for all status changes (true) or only for child exits (false)
-	 * @param callback Function that is called the moment the child changes status
-	 * @return Object that can be used to stop checking for status changes
+	 *  Register a function that is called the moment the status of a child changes
+	 *  @param pid The child PID
+	 *  @param trace Monitor for all status changes (true) or only for child exits (false)
+	 *  @param callback Function that is called the moment the child changes status
+	 *  @return Object that can be used to stop checking for status changes
 	 */
 	Php::Value onStatusChange(Php::Parameters &parameters);
 };
 
 /**
- *	End namespace
+ *  End of namespace
  */
 };
