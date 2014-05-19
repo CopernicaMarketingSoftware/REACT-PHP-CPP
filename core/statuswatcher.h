@@ -1,9 +1,9 @@
 /**
- *	StatusWatcher.h
+ *  StatusWatcher.h
  *
- *	Wrapper around the REACT-CPP Status Watcher class
+ *  Wrapper around the REACT-CPP Status Watcher class
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
@@ -13,19 +13,19 @@
 #include <reactcpp.h>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 
 /**
- *	Class definition
+ *  Class definition
  */
 class StatusWatcher : public Php::Base
 {
 private:
 	/**
 	 *  The actual Status Watcher object
-	 * 	@var	std::shared_ptr
+	 *  @var	std::shared_ptr
 	 */
 	std::shared_ptr<React::StatusWatcher> _watcher;
 	
@@ -49,7 +49,7 @@ public:
 	/**
 	 *  Alternative constructor
 	 *  @param	loop
-	 * 	@param	pid
+	 *  @param	pid
 	 *  @param	trace
 	 *  @param	callback
 	 */
@@ -76,7 +76,7 @@ public:
 	
 	/**
 	 *  Start the signal watcher
-	 * 	@return bool
+	 *  @return bool
 	 */
 	Php::Value start()
 	{
@@ -85,7 +85,7 @@ public:
 	
 	/**
 	 *  Cancel the signal watcher
-	 *	@return bool
+	 *  @return bool
 	 */
 	Php::Value cancel()
 	{
