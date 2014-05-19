@@ -1,9 +1,9 @@
 /**
- *	SignalWatcher.h
+ *  SignalWatcher.h
  *
- *	Wrapper around the REACT-CPP Signal watcher class
+ *  Wrapper around the REACT-CPP Signal watcher class
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
@@ -13,12 +13,12 @@
 #include <reactcpp.h>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 
 /**
- *	Class definition
+ *  Class definition
  */
 class SignalWatcher : public Php::Base
 {
@@ -49,7 +49,7 @@ public:
 	/**
 	 *  Alternative constructor
 	 *  @param	loop
-	 * 	@param	signum
+	 *  @param	signum
 	 *  @param	callback
 	 */
 	void __construct(Php::Parameters &parameters)
@@ -74,7 +74,7 @@ public:
 	
 	/**
 	 *  Start the signal watcher
-	 * 	@return bool
+	 *  @return bool
 	 */
 	Php::Value start()
 	{
@@ -83,7 +83,7 @@ public:
 	
 	/**
 	 *  Cancel the signal watcher
-	 *	@return bool
+	 *  @return bool
 	 */
 	Php::Value cancel()
 	{
