@@ -1,9 +1,9 @@
 /**
- *	SynchronizeWatcher.h
+ *  SynchronizeWatcher.h
  *
- *	Wrapper around the REACT-CPP Synchronize watcher class
+ *  Wrapper around the REACT-CPP Synchronize watcher class
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
@@ -13,19 +13,19 @@
 #include <reactcpp.h>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 
 /**
- *	Class definition
+ *  Class definition
  */
 class SynchronizeWatcher : public Php::Base
 {
 private:
 	/**
 	 *  The actual Synchronize watcher object
-	 * 	@var	std::shared_ptr
+	 *  @var	std::shared_ptr
 	 */
 	std::shared_ptr<React::SynchronizeWatcher> _watcher;
 	
@@ -49,7 +49,7 @@ public:
 	/**
 	 *  Alternative constructor
 	 *  @param	loop
-	 * 	@param	fd
+	 *  @param	fd
 	 *  @param	callback
 	 */
 	void __construct(Php::Parameters &parameters)
@@ -71,28 +71,28 @@ public:
 		});
 	}
 	
-	/**
-     *  Synchronize with the event loop
-     *  @return bool
-     */
-    Php::Value synchronize()
-    {
+       /**
+     	*  Synchronize with the event loop
+     	*  @return bool
+     	*/
+    	Php::Value synchronize()
+    	{
 		return _watcher->synchronize();
 	}
 	
-	/**
-     *  Cancel the synchronizer
-     *  @return bool
-     */
-    Php::Value cancel()
-    {
+       /**
+     	*  Cancel the synchronizer
+     	*  @return bool
+     	*/
+    	Php::Value cancel()
+    	{
 		return _watcher->cancel();
 	}
      
 };
 
 /**
- * 	End of namespace
+ *  End of namespace
  */
 }
 
