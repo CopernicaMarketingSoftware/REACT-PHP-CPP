@@ -51,7 +51,7 @@ public:
 	 * @param callback
 	 * @return bool
 	 */
-    	void ip(Php::Parameters &params);
+    	Php::Value ip(Php::Parameters &params);
 
         /**
 	 * Find all MX records for a certain domain
