@@ -1,9 +1,9 @@
 /**
- *	WriteWatcher.h
+ *  WriteWatcher.h
  *
- *	Wrapper around the REACT-CPP Write watcher class
+ *  Wrapper around the REACT-CPP Write watcher class
  *
- *	@copyright 2014 Copernica BV
+ *  @copyright 2014 Copernica BV
  */
 
 /**
@@ -13,19 +13,19 @@
 #include <reactcpp.h>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 
 /**
- *	Class definition
+ *  Class definition
  */
 class WriteWatcher : public Php::Base
 {
 private:
 	/**
 	 *  The actual Write watcher object
-	 * 	@var	std::shared_ptr
+	 *  @var	std::shared_ptr
 	 */
 	std::shared_ptr<React::WriteWatcher> _watcher;
 	
@@ -49,7 +49,7 @@ public:
 	/**
 	 *  Alternative constructor
 	 *  @param	loop
-	 * 	@param	fd
+	 *  @param	fd
 	 *  @param	callback
 	 */
 	void __construct(Php::Parameters &parameters)
@@ -72,28 +72,28 @@ public:
 		});
 	}
 	
-	/**
-     *  Cancel the watcher
-     *  @return bool
-     */
-    Php::Value cancel()
-    {
+       /**
+     	*  Cancel the watcher
+     	*  @return bool
+	*/
+    	Php::Value cancel()
+    	{
 		return _watcher->cancel();
 	}
 
-	/**
-     *  Start/resume the watcher
-     *  @return bool
-     */
-    Php::Value resume()
-    {
+       /**
+    	*  Start/resume the watcher
+      	*  @return bool
+      	*/
+    	Php::Value resume()
+    	{
 		return _watcher->resume();
 	}
      
 };
 
 /**
- * 	End of namespace
+ *  End of namespace
  */
 }
 
