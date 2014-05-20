@@ -29,7 +29,7 @@ void Resolver::__construct(Php::Parameters &params)
 	// get the actual base object
 	Loop *loop = (Loop *)loopParam.implementation();
 		
-	// create the actual timer-watcher
+	// create the actual resolver
 	_resolver = std::make_shared<React::Dns::Resolver>(loop->loop());
 }
 
