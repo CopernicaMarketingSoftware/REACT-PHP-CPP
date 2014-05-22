@@ -1,7 +1,7 @@
 <?php
 
 /**
- *	REACT-PHP-CPP test file
+ *  REACT-PHP-CPP main watchers test file
  * 
  *  @copyright 2014 Copernica BV
  */
