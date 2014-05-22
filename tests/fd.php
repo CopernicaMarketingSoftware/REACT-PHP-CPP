@@ -1,7 +1,7 @@
 <?php
 
 /**
- *	REACT-PHP-CPP test file for file descriptors
+ *  REACT-PHP-CPP test file for file descriptors
  * 
  *  @copyright 2014 Copernica BV
  */
