@@ -59,9 +59,9 @@ public:
 	}
 	
 	/**
-	 * 	Constructor
+	 * Constructor
 	 * 
-	 * 	@param value	parameter value
+	 * @param value	parameter value
 	 */
 	void __construct(Php::Parameters &parameters)
 	{

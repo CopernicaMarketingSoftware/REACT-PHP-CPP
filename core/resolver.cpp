@@ -13,7 +13,7 @@
 #include <iostream>
 
 /**
- *	Set up namespace
+ *  Set up namespace
  */
 namespace ReactPhp {
 	
