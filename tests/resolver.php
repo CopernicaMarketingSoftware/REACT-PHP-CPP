@@ -1,7 +1,7 @@
 <?php
 
 /**
- *	REACT-PHP-CPP test file for the resolver
+ *  REACT-PHP-CPP test file for the resolver
  * 
  *  @copyright 2014 Copernica BV
  */
