@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  REACT-PHP-CPP test mysql connection file
+ *  REACT-PHP-CPP test query statement file
  * 
  *  @copyright 2014 Copernica BV
  */
