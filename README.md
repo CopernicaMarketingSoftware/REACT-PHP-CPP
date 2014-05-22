@@ -20,41 +20,47 @@ Below is a typical application, where an instance of the event loop is created, 
 // create the event loop
 $loop = new Async\Loop();
 
-// set a timeout
+// set a timer
+// the timer will stop execuing after 1.0 second
+// ad the callback will notify us of that fact
 $timer1 = $loop->onTimeout(1, function() {
 	
-	echo("timeout 1 expires\n");
+	// report that the timer has expired
+	echo("timer 1 expires\n");
 	
 	return false;
 	
 });
 
-// set a timeout -- alternative way
+// set a timeout -- alternative way: creating a timer object
 $timer2 = new Async\TimeoutWatcher($loop, 2, function() {
 
-	echo("timeout 2 expires\n");
+	// report that the second timer has expired
+	echo("timer 2 expires\n");
 	
 	return false;
 });
 
-// notify us when input is available
+// notify us when input is available on stdin
 $reader1 = $loop->onReadable('STDIN_FILENO', function() {
 	
+	// report that input is available
 	echo("Input is available at first reader\n");
 	
 	return false;
 });
 
-// notify us when input is available -- alternative way
+// notify us when input is available -- alternative way: creating a reader object
 $reader2 = new Async\ReadWatcher($loop, 'STDIN_FILENO', function() {
 	
+	// report that input is available on the second reader
 	echo("Input is available at second reader\n");
 	
 	return false;
 });
 
-// the current time
-echo($loop->now()."\n");
+// display the current time
+echo("Current time: ".$loop->now()."\n");
 
 // run the event loop
 $loop->run();
@@ -79,8 +85,10 @@ The ReactPhp::Connection class is wrapped around the React::MySQL::Connection cl
 $loop = new Async\Loop();
 
 // establish a connection to MySQL
+// the callback function will notify us upon establishment
 $connection = new Async\Connection($loop, "mysql.example.org", "example user", "example password", "example database", function() {
 	
+	// report after the connection has been established
 	echo("Connection established\n");
 	
 	return false;
@@ -128,6 +136,7 @@ $loop = new Async\Loop();
 // establish a connection to MySQL
 $connection = new Async\Connection($loop, "mysql.example.org", "example user", "example password", "example database", function() {
 	
+	// report after the connection has been established
 	echo("Connection established\n");
 	
 	return false;
@@ -144,7 +153,7 @@ $statement = new Async\Statement($connection, "INSERT INTO Persons (FirstName, L
 // execute the statement
 $statement->execute(function() {
 	
-	echo("Executing statement\n");
+	echo("Statement was executed\n");
 	
 	return false;
 	
@@ -195,6 +204,7 @@ $loop = new Async\Loop();
 // establish a connection to MySQL
 $connection = new Async\Connection($loop, "mysql.example.org", "example user", "example password", "example database", function() {
 	
+	// report after the connection has been established
 	echo("Connection established\n");
 	
 	return false;
