@@ -1,7 +1,7 @@
 <?php
 
 /**
- *	REACT-PHP-CPP timeout test file 
+ *  REACT-PHP-CPP timers test file 
  * 
  *  @copyright 2014 Copernica BV
  */
