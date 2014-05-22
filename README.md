@@ -23,7 +23,7 @@ $loop = new Async\Loop();
 // set a timer
 // the timer will stop execuing after 1.0 second
 // ad the callback will notify us of that fact
-$timer1 = $loop->onTimeout(1, function() {
+$timer1 = $loop->onTimeout(1.0, function() {
 	
 	// report that the timer has expired
 	echo("timer 1 expires\n");
@@ -33,7 +33,7 @@ $timer1 = $loop->onTimeout(1, function() {
 });
 
 // set a timeout -- alternative way: creating a timer object
-$timer2 = new Async\TimeoutWatcher($loop, 2, function() {
+$timer2 = new Async\TimeoutWatcher($loop, 2.0, function() {
 
 	// report that the second timer has expired
 	echo("timer 2 expires\n");
