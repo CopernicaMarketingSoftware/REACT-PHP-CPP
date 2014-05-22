@@ -68,7 +68,7 @@ public:
 			// pass the call on to PHP
 			callback();
 			
-			return true;
+			return false;
 		});
 	}
 	

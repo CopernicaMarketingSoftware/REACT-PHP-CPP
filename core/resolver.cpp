@@ -29,7 +29,7 @@ void Resolver::__construct(Php::Parameters &params)
 	// get the actual base object
 	Loop *loop = (Loop *)loopParam.implementation();
 		
-	// create the actual timer-watcher
+	// create the actual resolver
 	_resolver = std::make_shared<React::Dns::Resolver>(loop->loop());
 }
 
@@ -40,15 +40,14 @@ void Resolver::__construct(Php::Parameters &params)
  * @param callback
  * @return bool
  */
-void Resolver::ip(Php::Parameters &params)
+Php::Value Resolver::ip(Php::Parameters &params)
 {
 	// retrieve the parameters
 	Php::Value domain = params[0];
-	Php::Value version = params[1];
-	Php::Value callback = params[2];
+	Php::Value callback = params[1];
 	
 	// call the React::Dns::Resolver::ip function
-	_resolver->ip(domain, version, [callback](React::Dns::IpResult &&ips, const char *error) {
+	_resolver->ip(domain, [callback](React::Dns::IpResult &&ips, const char *error) {
 		
 		// check for error
 		if (error) throw Php::Exception(error);
@@ -60,7 +59,8 @@ void Resolver::ip(Php::Parameters &params)
 		for (auto &ip : ips) std::cout << ip << std::endl;
 	});
 	
-	
+	// done
+	return true;
 }
 
 /**
@@ -81,12 +81,14 @@ Php::Value Resolver::mx(Php::Parameters &params)
 		// check for error
 		if (error) throw Php::Exception(error);
 		
-		ResolverResult *object = new ResolverResult(std::move(mxs));
-
 		// call the PHP callback
-		callback(Php::Object("Async\\ResolverResult", object));
-	});
+		callback();
+		
+		// fetch all MX records
+		for (auto &record : mxs) std::cout << record << std::endl;
+	});	
 	
+	// done
 	return true;
 }
 

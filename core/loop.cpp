@@ -156,7 +156,7 @@ Php::Value Loop::onInterval(Php::Parameters &parameters)
 Php::Value Loop::onSignal(Php::Parameters &parameters)
 {
 	// the signal and the callback function
-	Php::Value signum = parameters[0];
+	int signum = parameters[0];
 	Php::Value callback = parameters[1];
 	
 	// call the MainLoop::onSignal function
@@ -165,7 +165,7 @@ Php::Value Loop::onSignal(Php::Parameters &parameters)
 		// call the PHP callback
 		callback();
 		
-		return true;
+		return false;
 	});
 	
 	return Php::Object("Async\\SignalWatcher", new SignalWatcher(signal));

@@ -93,7 +93,7 @@ extern "C"
         signalWatcher.method("start", &ReactPhp::SignalWatcher::start);
         signalWatcher.method("cancel", &ReactPhp::SignalWatcher::cancel);
         
-        // the staus watcher class
+        // the status watcher class
         Php::Class<ReactPhp::StatusWatcher> statusWatcher("StatusWatcher");
         statusWatcher.method("__construct", &ReactPhp::StatusWatcher::__construct);
         statusWatcher.method("start", &ReactPhp::StatusWatcher::start);

@@ -56,7 +56,7 @@ public:
 	{
 		// retrieve the parameters
 		Php::Value loopParam = parameters[0];
-		Php::Value signum = parameters[1];
+		int signum = parameters[1];
 		Php::Value callback = parameters[2];
 		
 		// get the actual base object
@@ -68,7 +68,7 @@ public:
 			// pass the call on to PHP
 			callback();
 			
-			return true;
+			return false;
 		});
 	}
 	
